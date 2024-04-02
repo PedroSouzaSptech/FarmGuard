@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="CADASTRO.CSS">
+<body>
+    
+<div class="container" >    
+    <h1 class="titulo">Gadastro FarmGuard</h1> 
+
+
+    <h2 class="titulo2"> Informe aqui o seu nome  </h2>
+        <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui o seu nome..."> 
+    <h2 class="titulo2"> Informe aqui o seu email </h2>
+        <input id="input_email"  class="digitar" type="email" placeholder="Digite o seu email...">
+    <h2 class="titulo2"> LOGIN </h2>
+        <input id="input_login"  class="digitar" type="text" placeholder="Digite o login..."> 
+    <h2 class="titulo2"> SENHA </h2>
+        <input id="input_senha"  class="digitar" type="password" placeholder="Digite o senha...">
+    <br>    
+        <button onclick="entrar()">Criar conta</button> 
+        <button onclick="cancelar()">Cancelar</button> 
+</div> 
+<nav>
+    <th>   <a href="INICIAL.html" alt="" target="black">  INICIAL  </a>  </th>
+</nav>
+</body>
+</html>
+<script> 
+ function cancelar(){
+    input_nome.value = " "
+    input_email.value = " " 
+    input_login.value = " "  
+    input_senha.value = " " 
+  
+    }
+
+
+
+
+</script>

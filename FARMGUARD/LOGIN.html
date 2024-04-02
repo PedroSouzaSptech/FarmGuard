@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="LOGIN.css">
+<body>
+    
+<div class="container" >    
+    <h1 class="titulo">GRUPO 1</h1> 
+    <h2 class="titulo2"> LOGIN </h2>
+        <input id="input_login"  class="digitar" type="text" placeholder="Digite o login..."> 
+    <h2 class="titulo2"> SENHA </h2>
+        <input id="input_senha"  class="digitar" type="password" placeholder="Digite o senha...">
+     <br>    
+        <button onclick="entrar()">Entrar</button> 
+        <button onclick="cancelar()">Cancelar</button> 
+</div> <br> 
+
+<nav>
+    <th>   <a href="INICIAL.html" alt="" target="black">  INICIAL  </a>  </th>
+</nav>
+
+</body>
+</html>
+
+<script> 
+contador = 3;
+    function entrar(){
+        var login = input_login.value;
+        var senha = input_senha.value;
+
+        if (login === "FarmGuard" && senha === "1234") {
+            alert ("BEM VINDO À FARMGUARD!")
+        }
+        else {
+            alert ("Falha ao logar, tente novamente!")
+             
+        }
+    }
+    function cancelar(){
+        input_login.value = " ";
+        input_senha.value = " ";
+        
+    }
+    </script>

@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
+    color: black;
+    height: 100px;
+}
+
+.header{
+    width: 100%;
+    height: 100px;
+    border-bottom: 2px solid #583a00;
+    align-items: center;
+}
+
+.container{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
+    list-style: none;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
+}
+
+.navbar .th{
+    justify-content: center;
+}
+
+.navbar a{
+margin-right: 30px
+}
+
+nav a{
+    color: #fff;
+    float: right;
+    text-decoration: none;
+    display: block;
+    padding: 50px;
+    font-family: Arial;
+    justify-content: center;
+    }
+nav a:hover{
+    transition: 0.5s;
+    background-color: #ffe284;
+    }
+    
+
+.banner{
+    height: 400px;
+    background-image: url("IMAGENS/lake-constance-sheep-pasture-sheep-blue-158179-1.jpeg");
+}
+
+.banner .container{
+    justify-content: center;
+
+}
+.banner .container p{
+    font-size: 35px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+.social{
+    height: auto;
+    background-color: #e5e5e5;
+    padding: 20px 0;
+}
+
+.social .container .card{
+    width: 200px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 420px;
+    justify-content: space-between;
+}
+.social .container .card img{
+    width: 150px;
+}
+.social .container .card h4{
+    font-size: 24px;
+}
+
+a{ 
+    width: 200px;
+    height: 40px;
+    background: #ff5623;
+    color: #000;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.imagem{
+    width: 40px;
+    height: 45px;
+}
+
+
+   
