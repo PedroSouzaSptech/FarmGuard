@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +10,7 @@
 }
 
 body{
-    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
+    background-color: white;
     color: black;
     height: 100px;
 }
@@ -18,14 +22,6 @@ body{
     align-items: center;
 }
 
-.container{
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .navbar{
     display: flex;
@@ -33,8 +29,8 @@ body{
     overflow: hidden;
     position: fixed;
     width: 100%;
-    height: 15%;
-    align-items: center;
+    height: 10%;
+    justify-content: center;
     background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
 }
 
@@ -59,22 +55,31 @@ nav a:hover{
     transition: 0.5s;
     background-color: #ffe284;
     }
+
+
+    .banner{
+        height: 400px;
+        background-image: url("IMAGENS/lake-constance-sheep-pasture-sheep-blue-158179-1.jpeg");
+    }
+    
+    .banner .container{
+        justify-content: center;
+    
+    }
+    .banner .container p{
+        font-size: 35px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
     
 
-.banner{
-    height: 400px;
-    background-image: url("IMAGENS/lake-constance-sheep-pasture-sheep-blue-158179-1.jpeg");
+.container{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
-.banner .container{
-    justify-content: center;
-
-}
-.banner .container p{
-    font-size: 35px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
 
 .social{
     height: auto;
@@ -99,20 +104,32 @@ nav a:hover{
     font-size: 24px;
 }
 
-a{ 
-    width: 200px;
-    height: 40px;
-    background: #ff5623;
+
+
+.quem_somos{
+    display: flex;
+    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
+    background-color: white;
+    color: black;
+    height: 100px;
+}
+.nossos_servicos{
+    display: flex;
+    background-color: white;
     color: #000;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
+    height: 100px;
+}
+.sobre_aviarios{
+    display: flex;
+    background-color: white;
+    color: black;
+    height: 100px;
 }
 
-.imagem{
-    width: 40px;
-    height: 45px;
+
+h1{
+    width: 50%;
+    height: 50%;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-
-   

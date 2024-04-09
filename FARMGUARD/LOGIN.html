@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="LOGIN.css">
 <body>
     
-<div class="container" >    
+<div class="container" id="login">    
     <h1 class="titulo">GRUPO 1</h1> 
     <h2 class="titulo2"> LOGIN </h2>
         <input id="input_login"  class="digitar" type="text" placeholder="Digite o login..."> 
@@ -19,21 +19,42 @@
         <button onclick="cancelar()">Cancelar</button> 
 </div> <br> 
 
-<nav>
-    <th>   <a href="INICIAL.html" alt="" target="black">  INICIAL  </a>  </th>
-</nav>
+<div class="container" id="cadastro">    
+    <h1 class="titulo">Gadastro FarmGuard</h1> 
 
+
+    <h2 class="titulo2"> Informe aqui o seu nome  </h2>
+        <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui o seu nome..."> 
+    <h2 class="titulo2"> Informe aqui o seu email </h2>
+        <input id="input_email"  class="digitar" type="email" placeholder="Digite o seu email...">
+    <h2 class="titulo2"> LOGIN </h2>
+        <input id="input_login"  class="digitar" type="text" placeholder="Digite o login..."> 
+    <h2 class="titulo2"> SENHA </h2>
+        <input id="input_senha"  class="digitar" type="password" placeholder="Digite o senha...">
+    <br>    
+        <button onclick="entrar()">Criar conta</button> 
+        <button onclick="cancelar()">Cancelar</button> 
+</div> 
+<nav>
+    <th> <button onclick="cancelar()">Cadastre-se </button> </th>
+    <th> <button onclick="inicial()"> Inicial </button>  </th>
+</nav>
+    
 </body>
 </html>
 
 <script> 
 contador = 3;
+cadastro.style.display = 'none'
     function entrar(){
         var login = input_login.value;
         var senha = input_senha.value;
 
         if (login === "FarmGuard" && senha === "1234") {
             alert ("BEM VINDO À FARMGUARD!")
+        
+            login.style.display = 'none';
+            cadastro.style.display = 'block';
         }
         else {
             alert ("Falha ao logar, tente novamente!")
@@ -41,8 +62,8 @@ contador = 3;
         }
     }
     function cancelar(){
-        input_login.value = " ";
-        input_senha.value = " ";
+        input_login.value = "";
+        input_senha.value = "";
         
     }
     </script>
