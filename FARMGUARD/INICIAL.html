@@ -1,68 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="INICIAL.CSS">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    <div class="header"> 
-        <ul class="navbar">
-            <nav>
-                <th>   <a href="LOGIN.html" alt="" target="black">  LOGIN  </a>  </th>
-                <th>   <a href="#nossos_servicos" alt="" target="black">  NOSSOS SERVIÇOS  </a>   </th>
-                <th>   <a href="#quem_somos" alt="" target="black">  QUEM SOMOS  </a>   </th>
-                <th>   <a href="#sobre_aviarios" alt="" target="black">  AVIÁRIOS  </a>   </th>
-                <th>   <a href="#div_mvv" alt="" target="black">  MVV </a>    </th>
-                <th>   <a href="#div_inicial" alt="" target="black">  INICIAL </a>   </th>
-                </nav>
-        </ul>
-</div> 
-
-<div class="banner" id="div_inicial"> 
-    <div class="container"> 
-        <p> Preservando hoje para existirem amanhã </p>
+    <div class="header">
+        <nav>
+            <ul class="navbar">
+                <li><a href="#div_inicial" alt="" target="black">INICIAL</a></li>
+                <li><a href="#div_mvv" alt="" target="black">MVV</a></li>
+                <li><a href="#sobre_aviarios" alt="" target="black">AVIÁRIOS</a></li>
+                <li><a href="#quem_somos" alt="" target="black">QUEM SOMOS</a></li>
+                <li><a href="#nossos_servicos" alt="" target="black">NOSSOS SERVIÇOS</a></li>
+                <li><a href="LOGIN.html" alt="" target="black">LOGIN | CADASTRO</a></li>
+            </ul>
+        </nav>
     </div>
-</div>
 
-<div class="social"> 
-    <div class="container"> 
-        <div class="card" id="div_mvv"> 
-            <img src="IMAGENS/missao.png" alt=""> 
-            <h4> Missão </h4>
-            <p> Melhorar a criação de animais com o auxílio da tecnologia. </p>
-        </div>
-
-        <div class="card"> 
-            <img src="IMAGENS/visao-icone.png" alt=""> 
-            <h4> Visão </h4>
-            <p> Ser a melhor opção no mercado para a criação de animais em todo o Brasil. </p>
-        </div>
-
-        <div class="card"> 
-            <img src="IMAGENS/valores.png" alt=""> 
-            <h4> Valores </h4>
-            <p> Transparência, Criatividade e Inovação.  </p>
+    <div class="banner" id="div_inicial">
+        <div class="container">
+            <p>Preservando hoje para existirem amanhã</p>
         </div>
     </div>
-</div>
+
+    <div class="social">
+        <div class="container">
+            <div class="card" id="div_mvv">
+                <img src="IMAGENS/missao.png" alt="">
+                <h4>Missão</h4>
+                <p>Melhorar a criação de animais com o auxílio da tecnologia.</p>
+            </div>
+
+            <div class="card">
+                <img src="IMAGENS/visao-icone.png" alt="">
+                <h4>Visão</h4>
+                <p>Ser a melhor opção no mercado para a criação de animais em todo o Brasil.</p>
+            </div>
+
+            <div class="card">
+                <img src="IMAGENS/valores.png" alt="">
+                <h4>Valores</h4>
+                <p>Transparência, Criatividade e Inovação.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sobre_aviarios" id="sobre_aviarios">
+        <h1>Sobre os Aviários</h1>
+    </div>
+
+    <!-- DIMINUIR CARDS -->
+    <div class="quem_somos" id="quem_somos">
+        <center><h1>Quem Somos</h1></center>
+        <div class="card_somos">
+            <div class="card" style="text-align: center; margin: 60px;">
+                <h4>Liderança</h4>
+                <p>Somos uma líder dedicada em proporcionar soluções avançadas de controle de temperatura para aviários
+                    em todo o mundo. Ajudamos produtores avícolas a otimizar suas operações, garantindo condições 
+                    ambientais ideais para o bem-estar e o desempenho máximo das aves.
+                </p>
+            </div>
+            <div class="card" style="text-align: center; margin: 60px;">
+                <h4>Compromisso</h4>
+                <p>Nosso compromisso não se limita apenas à entrega de produtos e serviços excepcionais, mas também a estabelecer parcerias duradouras com nossos clientes,
+                     fornecendo suporte contínuo e expertise técnica em todas as etapas do processo. </p>
+            </div>
+            <div class="card" style="text-align: center; margin: 60px;">
+                <h4>Dedicação igual para todos</h4>
+                <p>Seja você um pequeno produtor familiar ou uma grande operação industrial, estamos aqui para oferecer as soluções de controle de temperatura
+                     que você precisa para alcançar seus objetivos. Junte-se a nós na jornada rumo ao sucesso avícola sustentável.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="nossos_servicos" id="nossos_servicos">
+        <h1>Nossos Serviços</h1>
+    </div>
+
+    <footer>
+        <p><b>Estamos localizados na rua <a
+                    href="https://www.google.com/maps/place/Rua+Haddock+Lobo,+595+-+Cerqueira+C%C3%A9sar,+S%C3%A3o+Paulo+-+SP,+01414-002/@-23.5580824,-46.6617266,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce59d2b0da4a3f:0xf9757971d2bc9963!8m2!3d-23.5580824!4d-46.6617266!16s%2Fg%2F11v0_44c70?entry=ttu"
+                    target="_blank">Rua
+                    Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</a></b>
+        </p>
 
 
-<div class="sobre_aviarios" id="sobre_aviarios"> 
-    <h1> Sobre os Aviários </h1>
-</div>
-<div>
+        <div>
+            <b>Nossos Devs:</b><br><br>
+            <a href="https://github.com/BettinaGoulart" target="_blank">Bettina Goulart Romanelli Crispim</a><br>
+            <a href="https://github.com/DominiqueSPTech" target="_blank">Dominique Falcone-Dornan</a><br>
+            <a href="https://github.com/W-Faria-M" target="_blank">Gabriel de Faria Barranco</a><br>
+            <a href="https://github.com/GuilhermeLoure" target="_blank">Guilherme Lourenço de Oliveira</a><br>
+            <a href="https://github.com/izabelleFigueiredo" target="_blank">Izabelle Carmelita Figueiredo</a><br>
+            <a href="https://github.com/PedroSouzaSptech" target="_blank">Pedro Barbosa Souza</a><br>
+            <a href="https://github.com/RodrigoAlmeida2006" target="_blank">Rodrigo Almeida Munhoes Fré</a><br>
+        </div><br>
 
-<div class="quem_somos" id="quem_somos"> 
-    <h1> Quem Somos </h1>
+        <a href="https://github.com/PedroSouzaSptech/Sprint-2" target="_blank"><img width="100%" height="100%"
+                src="IMAGENS/Design sem nome.png" alt=""></a>
+    </footer>
 
-</div>
 
-<div class="nossos_servicos" id="nossos_servicos"> 
-    <h1> Nossos Serviços </h1>
-
-</div>
-  
 </body>
+
 </html>

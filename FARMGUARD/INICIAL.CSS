@@ -71,6 +71,25 @@ nav a:hover{
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
     
+.card{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #4499ee;
+    border: #5e5ea8;
+    text-align: center;
+    display: none;
+
+
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 800px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #4499ee;
+}
 
 .container{
     width: 80%;
@@ -85,6 +104,8 @@ nav a:hover{
     height: auto;
     background-color: #e5e5e5;
     padding: 20px 0;
+
+
 }
 
 .social .container .card{
@@ -95,7 +116,7 @@ nav a:hover{
     flex-direction: column;
     text-align: center;
     height: 420px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .social .container .card img{
     width: 150px;
@@ -107,12 +128,25 @@ nav a:hover{
 
 
 .quem_somos{
+    padding: 20px;
     display: flex;
     background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
     background-color: white;
     color: black;
-    height: 100px;
+    height: auto;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
+.card_somos {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+}
+
 .nossos_servicos{
     display: flex;
     background-color: white;
@@ -133,3 +167,21 @@ h1{
     font-size: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+footer {
+    height: 200px;
+    width: auto;
+    background-color:#4499ee;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px 0px 50px;
+    margin: 0;
+}
+
+footer.p{
+    align-items: start;
+}
+footer.div {
+    align-items: end;
+}
+
