@@ -91,6 +91,8 @@ nav a:hover{
     box-shadow: 0 0 10px #4499ee;
 }
 
+
+
 .container{
     width: 80%;
     height: 100%;
@@ -134,30 +136,85 @@ nav a:hover{
     background-color: white;
     color: black;
     height: auto;
-    justify-content: center;
+    justify-content:space-around ;
     flex-direction: column;
     align-items: center;
+}
+.quem_somos h1 {
+    text-align: left;
+    width: 100%;
 }
 .card_somos {
     width: 90%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     margin: auto;
 }
 
+.quem_somos_card {
+    width: 70%;
+    text-align: left;
+    font-size: 20px;
+}
+.quem_somos_card h4{
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.quem_somos_card h4{
+    color: #fff;
+}
+.quem_somos_card_comp {
+    text-align: right;
+    font-size: 20px;
+    width: 70%;
+}
+.quem_somos_card_comp h4 {
+    color: #fff;
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.quem_somos_card_comp p {
+    text-align: left;
+}
+
+.quem_somos_card h4 {
+    text-align: left;
+}
+
 .nossos_servicos{
+    padding: 20px;
     display: flex;
     background-color: white;
     color: #000;
-    height: 100px;
+    height: auto;
 }
+.card_servicos{
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #4499ee;
+    border: #5e5ea8;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #4499ee;
+    
+}
+
 .sobre_aviarios{
+    padding: 20px;
     display: flex;
     background-color: white;
     color: black;
-    height: 100px;
+    height: auto;
+    text-align: left;
 }
 
 
@@ -166,6 +223,15 @@ h1{
     height: 50%;
     font-size: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.titulo_somos{
+    height: 50%;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: end;
+    align-items: end;
+    flex-direction: row-reverse;
 }
 
 footer {
@@ -184,4 +250,8 @@ footer.p{
 footer.div {
     align-items: end;
 }
-
+.end {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
