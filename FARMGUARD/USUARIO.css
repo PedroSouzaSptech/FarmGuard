@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  /* Paleta de cores: 
+  vermelho: #b41d1d
+  Laranja: #e85817
+  Amarelo: #f8c71d
+  Azul: #025360
+  Preto: #000000 */
+
+  body {
+    background-color: #025360;
+    color: #e85817;
+  }
+
+  .header {
+    width: 100%;
+    border-bottom: 2px solid #f8c71d;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    background-color: #222;
+  }
+
+  .container {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar {
+    display: flex;
+    list-style: none;
+  }
+
+  .avisos{
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .cards {
+    width: 200px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    height: 130px;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 15px;
+    border-color: #e85817;
+  }
+
+  .indicadores {
+    width: 50%;
+    flex-direction: column;
+    display: flex;
+    gap: 15px;
+  }
+  .ind{
+    color: white;
+    border-color: #e85817;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 15px;
+    padding: 10px;
+
+
+  
+    
+    
+  }
