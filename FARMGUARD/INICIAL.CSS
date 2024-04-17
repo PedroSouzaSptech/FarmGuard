@@ -10,7 +10,7 @@ html {
 }
 
 body{
-    background-color: white;
+    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
     color: black;
     height: 100px;
 }
@@ -58,7 +58,7 @@ nav a:hover{
 
 
     .banner{
-        height: 400px;
+        height: 500px;
         background-image: url("IMAGENS/lake-constance-sheep-pasture-sheep-blue-158179-1.jpeg");
     }
     
@@ -90,7 +90,6 @@ nav a:hover{
     border-radius: 20px;
     box-shadow: 0 0 10px #4499ee;
 }
-
 
 
 .container{
@@ -152,6 +151,19 @@ nav a:hover{
     flex-direction: column;
     margin: auto;
 }
+
+.sobre_aviarios_card{
+    width: 70%;
+    text-align: left;
+    font-size: 20px;
+}
+
+.sobre_aviarios_card h4{
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #f88603;
+}
+
 
 .quem_somos_card {
     width: 70%;
