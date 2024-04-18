@@ -87,18 +87,32 @@
     justify-content: space-between;    
     flex-direction: row;
     display: flex;
+    
   }
   .ind img{
-    width: 20px;
+    width: 30px;
   }
   .ind p {
     display: flex;
+    align-items: center;
+
   }
   .graficos{
     display: flex;
     justify-content: space-around;
     padding-top: 50px;
+    text-align: center;
+    
   }
-  .sensor .media_sensor {
-    width: 800px;
+  .sensor {
+    width: 950px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+  }
+  
+  .media_sensor {
+    width: 950px;
+    display: flex;
+    flex-direction: column;
   }

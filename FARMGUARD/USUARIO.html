@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title> FarmGuard | Dashboard</title>
   <link rel="stylesheet" href="USUARIO.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -52,8 +52,8 @@
     <div class="sensor">
       <h2>Aviário 1</h2>
       <canvas id="grafico_sensor"></canvas>
-
     </div>
+
     <div class="media_sensor">
       <h2>Oscilação da temperatura nos últimos 5 dias</h2>
       <canvas id="grafico_media"></canvas>
@@ -64,46 +64,66 @@
 </html>
 <script>
 
- const gl = document.getElementById('grafico_sensor');
-    new Chart(gl, {
-        type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'Temperatura',
-                data: [30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10],
-                borderWidth: 1,
-            }
-        ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                },
-            }
-        }
-    });
+  const gl = document.getElementById('grafico_sensor');
+  new Chart(gl, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Temperatura',
+        data: [30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10],
+        borderWidth: 1,
+        borderColor: '#f8c71d',
+        backgroundColor: '#f8c71d',
 
-    const gb = document.getElementById('grafico_media');
-    new Chart(gb, {
-      type: 'line',
-        data: {
-            labels: ['Dom','Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-            datasets: [{
-                label: 'Temperatura',
-                data: [19.7, 22.2, 24.9, 21.4, 19.9, 23.1, 25.3],
-                borderWidth: 1,
-            }
-        ]
+      }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 15,
             }
+          }
+        },
+        // subtitle: {         -- subtitulo que pode ser util pra colocar o numero do aviario dps, caso necessario
+        //         display: true,
+        //         text: 'Custom Chart Subtitle'
+        //     }
+      }
+    }
+  });
+
+  const gb = document.getElementById('grafico_media');
+  new Chart(gb, {
+    type: 'line',
+    data: {
+      labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [19.7, 22.2, 24.9, 21.4, 19.9, 23.1, 25.3],
+        borderWidth: 2,
+        borderColor: '#e85817',
+        backgroundColor: '#f8c71d',
+        textColor: '#e85817',
+      }
+
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
         }
-    });
+      }
+    }
+  });
 
 </script>
