@@ -1,0 +1,58 @@
+body {
+    background-image: url(https://s2.glbimg.com/JHrPiU72WMoOOlJHDUJYf9OHzfQ=/e.glbimg.com/og/ed/f/original/2022/06/07/chicken-4849979_1920.jpg);
+    background-position: center;
+    background-size: cover;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 60px;
+    color: #9d100b; 
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #790703; 
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #f0ad4e; 
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ec971f; 
+}
+
+#div_msg {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #c7771c; 
+    
+
+
+}
