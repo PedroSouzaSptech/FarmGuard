@@ -1,49 +1,129 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="USUARIO.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> FarmGuard | Dashboard</title>
+  <link rel="stylesheet" href="USUARIO.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    <div class="header">
-        <div class="container">
-          <h2>Dashboard</h2>
-          <ul class="navbar">
-            <li>Logout</li>
-          </ul>
-        </div>
+  <div class="header">
+    <div class="container">
+      <h2>Dashboard</h2>
+      <ul class="navbar">
+        <li>Logout</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="avisos">
+    <div class="cards">
+      <h1>75%</h1>
+      <p>Aviarios com Temperatura adqueada</p>
+    </div>
+    <div class="cards">
+      <h1>20%</h1>
+      <p>Aviários com temperatura em oscilação</p>
+    </div>
+    <div class="cards">
+      <h1>5%</h1>
+      <p>Aviários fora da temperatura adequada</p>
     </div>
 
-    <div class="avisos">
-        <div class="cards">
-          75% <br><br>
-          Aviarios com Temperatura adqueada
-        </div>
-        <div class="cards">
-          20% <br><br>
-          Aviários com temperatura  em oscilação
-        </div>
-        <div class="cards">
-          5% <br><br>
-          Aviários fora da temperatura adequada
-        </div>
-      <div class="indicadores">
-        <div class="ind">
-          Aviários com temperatura crítica:
-        </div>
-        <div class="ind">
-          Aviários que permaneceram mais de 10 min fora da temperatura adequada:
-        </div>
-        <div class="ind">
-          Temperatura adequada: 22ºC a 26ºC
-        </div>
+    <div class="indicadores">
+      <h2>Principais Indicadores:</h2>
+      <div class="ind">
+        <p>Aviários com temperatura crítica: </p><span> <img src="IMAGENS/atencao.png"></span>
       </div>
+      <div class="ind">
+        <p>Aviários que permaneceram mais de 10 min fora da temperatura adequada:</p> <span><img
+            src="IMAGENS/atencao.png"></span>
       </div>
+      <div class="ind">
+        <p> Temperatura adequada: 22ºC a 26ºC</p> <span> <img src="IMAGENS/ok.png"></span>
+      </div>
+    </div>
+  </div>
 
+  <div class="graficos">
+    <div class="sensor">
+      <h2>Aviário 1</h2>
+      <canvas id="grafico_sensor"></canvas>
     </div>
 
-
+    <div class="media_sensor">
+      <h2>Oscilação da temperatura nos últimos 5 dias</h2>
+      <canvas id="grafico_media"></canvas>
+    </div>
+  </div>
 </body>
+
 </html>
+<script>
+
+  const gl = document.getElementById('grafico_sensor');
+  new Chart(gl, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Temperatura',
+        data: [30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10],
+        borderWidth: 1,
+        borderColor: '#f8c71d',
+        backgroundColor: '#f8c71d',
+
+      }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 15,
+            }
+          }
+        },
+        // subtitle: {         -- subtitulo que pode ser util pra colocar o numero do aviario dps, caso necessario
+        //         display: true,
+        //         text: 'Custom Chart Subtitle'
+        //     }
+      }
+    }
+  });
+
+  const gb = document.getElementById('grafico_media');
+  new Chart(gb, {
+    type: 'line',
+    data: {
+      labels: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+      datasets: [{
+        label: 'Temperatura',
+        data: [19.7, 22.2, 24.9, 21.4, 19.9, 23.1, 25.3],
+        borderWidth: 2,
+        borderColor: '#e85817',
+        backgroundColor: '#f8c71d',
+        textColor: '#e85817',
+      }
+
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+</script>
