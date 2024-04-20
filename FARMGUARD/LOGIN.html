@@ -3,67 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - FarmGuard</title>
+    <link rel="stylesheet" href="LOGIN.css">
 </head>
-<link rel="stylesheet" href="LOGIN.css">
 <body>
-    
-<div class="container" id="login">    
-    <h1 class="titulo">GRUPO 1</h1> 
-    <h2 class="titulo2"> LOGIN </h2>
-        <input id="input_login"  class="digitar" type="text" placeholder="Digite o login..."> 
-    <h2 class="titulo2"> SENHA </h2>
-        <input id="input_senha"  class="digitar" type="password" placeholder="Digite o senha...">
-     <br>    
-        <button onclick="entrar()">Entrar</button> 
-        <button onclick="cancelar()">Cancelar</button> 
-</div> <br> 
 
-<div class="container" id="cadastro">    
-    <h1 class="titulo">Gadastro FarmGuard</h1> 
+<div class="logo">
+    <img 
+    src="C:\Users\galno\OneDrive\Área de Trabalho\Atividades SPTECH\Projeto 2\logo.png"
+    alt="logo da empresa">
+</div>
 
+<div class="nome-empresa">FarmGuard</div>
 
-    <h2 class="titulo2"> Informe aqui o seu nome  </h2>
-        <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui o seu nome..."> 
-    <h2 class="titulo2"> Informe aqui o seu email </h2>
-        <input id="input_email"  class="digitar" type="email" placeholder="Digite o seu email...">
-    <h2 class="titulo2"> LOGIN </h2>
-        <input id="input_login"  class="digitar" type="text" placeholder="Digite o login..."> 
-    <h2 class="titulo2"> SENHA </h2>
-        <input id="input_senha"  class="digitar" type="password" placeholder="Digite o senha...">
+<div class="nav-container">
+    <a href="file:///C:/Users/galno/OneDrive/%C3%81rea%20de%20Trabalho/Atividades%20SPTECH/Projeto%202/Sprint-2/FARMGUARD/CADASTRO.html" target="_self" class="nav-link" onclick="mostrarCadastro()">Cadastre-se</a>
+    <a href="file:///C:/Users/galno/OneDrive/%C3%81rea%20de%20Trabalho/Atividades%20SPTECH/Projeto%202/Sprint-2/FARMGUARD/INICIAL.html" target="_self" class="nav-link" onclick="mostrarLogin()">Inicio</a>
+</div>
+
+<div class="container">    
+    <h1 class="titulo">Login</h1> 
+    <h2 class="titulo2">Nome</h2>
+    <input id="input_nome" class="digitar" type="text" placeholder="Digite o seu nome..."> 
+    <h2 class="titulo2">Email</h2>
+    <input id="input_email" class="digitar" type="email" placeholder="Digite o seu email...">
+    <h2 class="titulo2">Senha</h2>
+    <input id="input_senha" class="digitar" type="password" placeholder="Digite a sua senha...">
     <br>    
-        <button onclick="entrar()">Criar conta</button> 
-        <button onclick="cancelar()">Cancelar</button> 
+    <button onclick="Entrar()">Acessar</button> 
+    <button onclick="cancelar()">Cancelar</button> 
 </div> 
-<nav>
-    <th> <button onclick="cancelar()">Cadastre-se </button> </th>
-    <th> <button onclick="inicial()"> Inicial </button>  </th>
-</nav>
-    
+
 </body>
 </html>
 
 <script> 
-contador = 3;
-cadastro.style.display = 'none'
-    function entrar(){
-        var login = input_login.value;
-        var senha = input_senha.value;
+        function cancelar(){
+            input_email.value = "";
+            input_senha.value = "";
+            input_nome.value = "";
+        }
 
-        if (login === "FarmGuard" && senha === "1234") {
-            alert ("BEM VINDO À FARMGUARD!")
-        
-            login.style.display = 'none';
-            cadastro.style.display = 'block';
+        function Entrar() {
+            var url = "C:/Users/galno/OneDrive/%C3%81rea%20de%20Trabalho/Atividades%20SPTECH/Projeto%202/Sprint-2/FARMGUARD/USUARIO.html";
+                window.open(url, "_self")
         }
-        else {
-            alert ("Falha ao logar, tente novamente!")
-             
-        }
-    }
-    function cancelar(){
-        input_login.value = "";
-        input_senha.value = "";
-        
-    }
-    </script>
+</script>
