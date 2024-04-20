@@ -24,9 +24,9 @@ body {
       margin-top: 50px;
       margin-left: 50px; 
   } 
-  
+
   button{
-      width: 200px;
+      width: 244px;
       height: 40px;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       background: #b41d1d;
@@ -37,6 +37,9 @@ body {
       cursor: pointer;
       margin-top: 10px;
       transition: background-color 0.3s ease;
+      margin-right: 5px;
+      margin-left: 10px;
+      margin-bottom: 20px;
   }
 
   button:hover {
@@ -85,8 +88,6 @@ body {
     margin-right: 10px; 
     font-size: 25px;
     margin-top: 20px;
-    
-    
 }
 
   .logo {
