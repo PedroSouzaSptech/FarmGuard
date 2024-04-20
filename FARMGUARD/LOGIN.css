@@ -13,7 +13,7 @@ body {
   .container {
       display: flex;
       flex-direction: column;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.8);
       width: 600px;
       height: 500px;
       align-items: center;
@@ -28,15 +28,21 @@ body {
   button{
       width: 200px;
       height: 40px;
-      font: bold 1rem serif;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
       background: #b41d1d;
       color: #fff;
       outline: none;
       border: none;
-      border-radius: 5px;
+      border-radius: 10px;
       cursor: pointer;
-    
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
   }
+
+  button:hover {
+      background-color: #8c1414;
+  }
+  
   
   .titulo {
       color: white;
