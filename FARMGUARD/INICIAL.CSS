@@ -78,12 +78,12 @@ nav a:hover{
             font-weight: bold;
             border: 3px solid #f8c71d;
             border-radius: 15px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            align-items: center;
+            flex-direction: column;
+
+            /* transform: translate(-50%, -50%); */
             z-index: 2;
-            width: auto;
+            width: fit-content;
             height: auto;
             padding: 20px;
             text-align: center;
