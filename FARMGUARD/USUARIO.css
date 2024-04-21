@@ -38,6 +38,16 @@
   .navbar {
     display: flex;
     list-style: none;
+    color: #e85817;
+    font-size: 20px;
+  }
+  .botao {
+    text-decoration: none;
+    
+  }
+  .botao:hover {
+    transition: 0.4s;
+    color: #eb9065;
   }
 
   .avisos{
@@ -105,14 +115,14 @@
     
   }
   .sensor {
-    width: 950px;
+    width: 850px;
     display: flex;
     flex-direction: column;
     padding: 5px;
   }
   
   .media_sensor {
-    width: 950px;
+    width: 850px;
     display: flex;
     flex-direction: column;
   }

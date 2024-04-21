@@ -4,13 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Financeiro FarmGuard</title>
-    
+    <title>FarmGuard | Simulador Financeiro</title>
+    <link rel="stylesheet" href="SIMULADOR.css">
 </head>
-<link rel="stylesheet" href="SIMULADOR.css">
+
 <body>
+    <header>
+        <div class="logo">
+            <a href="INICIAL.html">
+                <img src="IMAGENS/logo.svg" alt="logo da empresa">
+            </a>
+        </div>
+        <div class="nome-empresa"> <a href="INICIAL.html" class="aEmpresa">FarmGuard</a></div>
+
+        <div class="nav-container">
+            <a href="LOGIN.html" target="_self" class="nav-link">Login | Cadastro</a>
+        </div>
+    </header>
+
     <div class="container">
-        <h1>Simulador Financeiro FarmGuard</h1>
+        <h1>Simulador Financeiro</h1>
         <input type="text" id="input_nome" placeholder="Nome do Aviário">
         <br>
         <input type="number" id="input_galinha" placeholder="Quantidade de Galinhas">
@@ -28,18 +41,18 @@
 
 </html>
 
-    <script>
-        function Calcular() {
-            div_msg.innerHTML = '';
-            var galinhas = Number(input_galinha.value);
-            var perda = Number(input_perda.value);
-            var venda = Number(input_venda.value);
-            var nome = input_nome.value;
-            var porcentagem = (perda / galinhas) * 100;
+<script>
+    function Calcular() {
+        div_msg.innerHTML = '';
+        var galinhas = Number(input_galinha.value);
+        var perda = Number(input_perda.value);
+        var venda = Number(input_venda.value);
+        var nome = input_nome.value;
+        var porcentagem = (perda / galinhas) * 100;
 
-            var conta = venda * perda;
-            var lucro = conta * 0.40;
+        var conta = venda * perda;
+        var lucro = conta * 0.40;
 
-            div_msg.innerHTML =` O seu aviário ${nome}, <br> perde ${porcentagem.toFixed(2)}% por mês. <br> Com o nosso projeto, a perda diminuirá em 40%, fazendo com que tenha ganhos de: R$${lucro.toFixed(2)} `;
-        }
-    </script>
+        div_msg.innerHTML = ` O seu aviário ${nome}, <br> perde ${porcentagem.toFixed(2)}% por mês. <br> Com o nosso projeto, a perda diminuirá em 40%, fazendo com que tenha ganhos de: R$${lucro.toFixed(2)} `;
+    }
+</script>

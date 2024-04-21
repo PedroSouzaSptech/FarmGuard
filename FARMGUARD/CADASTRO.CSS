@@ -82,13 +82,44 @@ button{
     width: 300px;
   }
 
-  a{ 
-    width: 200px;
-    height: 40px;
-    background: #ff5623;
-    color: #000;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: large;
+.nav-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-top: 10px;
+}
+
+/* style do header, igual ao da pagina de login */
+.nav-container  .nav-link {
+color:  #f8c71d; 
+font-weight: bold;
+text-decoration: none; 
+margin-top: 40px;
+padding: 15px 25px; 
+margin-right: 10px; 
+font-size: 25px;
+margin-top: 20px;
+}
+.logo {
+position: absolute;
+top: 20px; 
+left: 20px; 
+}
+.logo img {
+width: 80px;
+height: auto; 
+}
+.nome-empresa .aEmpresa{
+font-size: 40px;
+margin-left: 20px;
+position: absolute;
+top: 40px;
+left: 100px;
+margin-top: 0px;
+color: #f8c71d;
+text-decoration: none; 
+}
+.nav-link:hover{
+transition: 0.4s;
+color: #eb9065;
 }

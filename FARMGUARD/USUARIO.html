@@ -12,9 +12,9 @@
 <body>
   <div class="header">
     <div class="container">
-      <h2>Dashboard</h2>
+      <h2>Dashboard </h2>
       <ul class="navbar">
-        <li>Logout</li>
+        <li> <a class="navbar botao" href="inicial.html"> Home </a></li>
       </ul>
     </div>
   </div>
@@ -36,14 +36,13 @@
     <div class="indicadores">
       <h2>Principais Indicadores:</h2>
       <div class="ind">
-        <p>Aviários com temperatura crítica: </p><span> <img src="IMAGENS/atencao.png"></span>
+        <p id="tempCritica">Aviários com temperatura crítica: </p> <span id="img1"> <img src="IMAGENS/ok.png"></span>
       </div>
       <div class="ind">
-        <p>Aviários que permaneceram mais de 10 min fora da temperatura adequada:</p> <span><img
-            src="IMAGENS/atencao.png"></span>
+        <p id="qtdAviarios">Aviários que permaneceram mais de 10 min fora da temperatura adequada:</p> <span id="img2"> <img src="IMAGENS/ok.png"></span>
       </div>
       <div class="ind">
-        <p> Temperatura adequada: 22ºC a 26ºC</p> <span> <img src="IMAGENS/ok.png"></span>
+        <p id="tempAdeq" > Temperatura adequada: 22ºC a 26ºC </p> <span id="img3" > <img src="IMAGENS/ok.png"> </span>
       </div>
     </div>
   </div>
@@ -59,6 +58,8 @@
       <canvas id="grafico_media"></canvas>
     </div>
   </div>
+
+
 </body>
 
 </html>
@@ -122,8 +123,47 @@
         y: {
           beginAtZero: true
         }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 15,
+            }
+          }
+        },
+        // subtitle: {
+        //         display: true,
+        //         text: 'Média do total de 3 sensores'
+        //     }
       }
     }
   });
+
+  // declarando variaveis para que a imagem de alerta apareça de acordo com o número de aviários
+  // considerado que o usuário tem 15 aviários
+  var media = 15 / 3 // media = qtdAviarios / 3, para exibir 3 ícones diferentes de acordo com a gravidade
+
+  // Aviários com temperatura crítica
+  var numTempCritica = (Math.random() * 15).toFixed();
+  tempCritica.innerHTML += ` ${numTempCritica}`;
+  if (numTempCritica<=(media*2) && numTempCritica>0){ // se for maior que 0 e menor que 2 terços do total
+    img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
+  }
+  if (numTempCritica>=media*2) { // se for maior que 2 terços do total
+    img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+  }
+
+
+ // Aviários que permaneceram mais de 10 min fora da temperatura adequada
+  var numAviarios = (Math.random() * 15).toFixed();
+  qtdAviarios.innerHTML += ` ${numAviarios}`;
+  if (numAviarios<=(media*2) && numAviarios>0){ 
+    img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
+  }
+  if (numAviarios>=media*2) {
+    img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+  }
+  
 
 </script>

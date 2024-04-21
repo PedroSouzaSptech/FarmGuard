@@ -9,7 +9,6 @@ body {
       height: 100vh;
       overflow: hidden;
   }
-  
   .container {
       display: flex;
       flex-direction: column;
@@ -46,7 +45,6 @@ body {
       background-color: #8c1414;
   }
   
-  
   .titulo {
       color: white;
       text-align: center;
@@ -73,27 +71,22 @@ body {
   
   .nav-container {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 30px;
+      right: 20px;
       margin-top: 10px;
   }
-  
- 
   .nav-container  .nav-link {
     color:  #f8c71d; 
     font-weight: bold;
     text-decoration: none; 
-    margin-top: 40px;
-    padding: 15px 25px; 
-    margin-right: 10px; 
+    padding: 20px 20px;
     font-size: 25px;
-    margin-top: 20px;
 }
 
   .logo {
     position: absolute;
-    top: 10px; 
-    left: 10px; 
+    top: 20px; 
+    left: 20px; 
 }
 
 .logo img {
@@ -101,13 +94,18 @@ body {
     height: auto; 
 }
 
-.nome-empresa {
+.nome-empresa .aEmpresa{
     font-size: 40px;
     margin-left: 20px;
     position: absolute;
-    top: 20px;
+    top: 40px;
     left: 100px;
     margin-top: 0px;
     color: #f8c71d;
-    
+    text-decoration: none; 
+
+}
+.nav-link:hover{
+    transition: 0.4s;
+    color: #eb9065;
 }
