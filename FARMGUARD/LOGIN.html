@@ -53,6 +53,19 @@
 
     function Entrar() {
         var url = "usuario.html";
-        window.open(url, "_self")
+
+        var nome = input_nome.value
+        var email = input_email.value
+        var senha = input_senha.value
+
+        if (nome == 'Fernando Brandão' && email == 'fernando@sptech.school' && senha == 'Sprint2') {
+            alert ('Login efetuado com sucesso')
+            window.open(url, "_self")
+        }else {
+            alert ('Informações incorretas')
+        } if (nome == '' || email == '' || senha == '') {
+            alert ('Espaços em branco')
+        } 
+    
     }
 </script>
