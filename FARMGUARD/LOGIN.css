@@ -25,6 +25,10 @@ body {
       margin-right: auto;
   } 
 
+  *{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;;
+}
+
   button{
       width: 244px;
       height: 40px;
@@ -104,7 +108,7 @@ body {
     margin-top: 0px;
     color: #f8c71d;
     text-decoration: none; 
-
+    font-weight: 600;
 }
 .nav-link:hover{
     transition: 0.4s;
