@@ -39,10 +39,11 @@
         <p id="tempCritica">Aviários com temperatura crítica: </p> <span id="img1"> <img src="IMAGENS/ok.png"></span>
       </div>
       <div class="ind">
-        <p id="qtdAviarios">Aviários que permaneceram mais de 10 min fora da temperatura adequada:</p> <span id="img2"> <img src="IMAGENS/ok.png"></span>
+        <p id="qtdAviarios">Aviários que permaneceram mais de 10 min fora da temperatura adequada:</p> <span id="img2">
+          <img src="IMAGENS/ok.png"></span>
       </div>
       <div class="ind">
-        <p id="tempAdeq" > Temperatura adequada: 22ºC a 26ºC </p> <span id="img3" > <img src="IMAGENS/ok.png"> </span>
+        <p id="tempAdeq"> Temperatura adequada: 22ºC a 26ºC </p> <span id="img3"> <img src="IMAGENS/ok.png"> </span>
       </div>
     </div>
   </div>
@@ -56,6 +57,20 @@
     <div class="media_sensor">
       <h2>Oscilação da temperatura nos últimos 5 dias</h2>
       <canvas id="grafico_media"></canvas>
+    </div>
+
+    <div class="editores_secao">
+
+      <div class="addSecao">
+        <h5>Adicionar Seção</h5>
+        <img src="IMAGENS/adicionar.png">
+      </div>
+
+      <div class="editSecao">
+        <h5>Editar Seção</h5>
+        <img src="IMAGENS/engrenagem.png">
+      </div>
+
     </div>
   </div>
 
@@ -147,23 +162,22 @@
   // Aviários com temperatura crítica
   var numTempCritica = (Math.random() * 15).toFixed();
   tempCritica.innerHTML += ` ${numTempCritica}`;
-  if (numTempCritica<=(media*2) && numTempCritica>0){ // se for maior que 0 e menor que 2 terços do total
+  if (numTempCritica <= (media * 2) && numTempCritica > 0) { // se for maior que 0 e menor que 2 terços do total
     img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
   }
-  if (numTempCritica>=media*2) { // se for maior que 2 terços do total
+  if (numTempCritica >= media * 2) { // se for maior que 2 terços do total
     img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
   }
 
-
- // Aviários que permaneceram mais de 10 min fora da temperatura adequada
+  // Aviários que permaneceram mais de 10 min fora da temperatura adequada
   var numAviarios = (Math.random() * 15).toFixed();
   qtdAviarios.innerHTML += ` ${numAviarios}`;
-  if (numAviarios<=(media*2) && numAviarios>0){ 
+  if (numAviarios <= (media * 2) && numAviarios > 0) {
     img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
   }
-  if (numAviarios>=media*2) {
+  if (numAviarios >= media * 2) {
     img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
   }
-  
+
 
 </script>
