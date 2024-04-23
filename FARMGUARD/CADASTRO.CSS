@@ -1,125 +1,150 @@
-  /* Paleta de cores: 
-  vermelho: #b41d1d
-  Laranja: #e85817
-  Amarelo: #f8c71d
-  Azul: #025360
-  Preto: #000000 */
-
-body{
-  background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
-    color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-
-
-}
-
-.container1{
-    display: flex;
-    flex-direction: column;
-    background: black;
-    width: 400px;
-    height: 500px;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgb(248, 46, 19);
-
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%,-50%);
-
-}
-
-.container2{
+body {
+  background-image: url(https://opresenterural.com.br/wp-content/uploads/2021/06/VACCINAR-FOTO-GALINHA-POEDEIRA-VACCINAR-DIVULGA%C3%87%C3%83O-2021-e1623170813779.jpg);
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  background: black;
-  width: 400px;
-  height: 500px;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgb(248, 46, 19);
-
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%,-50%);
-
+  height: 100vh;
+  overflow: hidden;
+}
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;;
 }
 
-button{
-    width: 300px;
-    height: 40px;
-    font: bold 1.5rem serif;
-    background: #b66700;
-    color: #fff;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-    align-items: center;
-  }
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
 
-  .titulo{
-    color: #fff;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-  .titulo2{
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 350px;
+  overflow-y: auto;
+}
 
-  .digitar{
-    color: #000;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    height: 50px;
-    width: 300px;
-  }
+.input-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.digitar {
+  color: #000;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 30px;
+  width: 500px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.input-data {
+  color: #000;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 20px;
+  width: 500px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.titulo-data{
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.8);
+  width: 600px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #b41d1d;
+  padding: 20px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  width: 244px;
+  height: 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: #b41d1d;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #8c1414;
+}
+
+.titulo {
+  color: white;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 10px;
+}
+
+.titulo2 {
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 5px;
+  left: 0;
+}
 
 .nav-container {
   position: absolute;
   top: 10px;
   right: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-/* style do header, igual ao da pagina de login */
 .nav-container  .nav-link {
-color:  #f8c71d; 
-font-weight: bold;
-text-decoration: none; 
-margin-top: 40px;
-padding: 15px 25px; 
-margin-right: 10px; 
-font-size: 25px;
-margin-top: 20px;
+  color:  #f8c71d; 
+  font-weight: bold;
+  text-decoration: none; 
+  margin-top: 40px;
+  padding: 15px 25px; 
+  margin-right: 10px; 
+  font-size: 25px;
+  margin-top: 20px;
 }
+
 .logo {
-position: absolute;
-top: 20px; 
-left: 20px; 
+  position: absolute;
+  top: 10px; 
+  left: 10px; 
 }
+
 .logo img {
-width: 80px;
-height: auto; 
+  width: 80px;
+  height: auto; 
 }
-.nome-empresa .aEmpresa{
-font-size: 40px;
-margin-left: 20px;
-position: absolute;
-top: 40px;
-left: 100px;
-margin-top: 0px;
-color: #f8c71d;
-text-decoration: none; 
+
+.nome-empresa {
+  font-size: 40px;
+  margin-left: 20px;
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  margin-top: 0px;
+  color: #f8c71d;
+  font-weight: 600;
 }
 .nav-link:hover{
-transition: 0.4s;
-color: #eb9065;
-}
+  transition: 0.4s;
+  color: #eb9065;
+  }

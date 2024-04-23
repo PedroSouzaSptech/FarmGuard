@@ -13,7 +13,7 @@
   Preto: #000000 */
 
   body {
-    background-color: #025360;
+    background-color: #ffffff;
     color: #e85817;
   }
 
@@ -68,7 +68,7 @@
     border-style: solid;
     border-width: 4px;
     border-radius: 15px;
-    border-color: #e85817;
+    border-color: #222;
     justify-content: center;
     padding: 7px;
     
@@ -76,6 +76,9 @@
   .cards h1{
     color: #f8c71d;
     padding: 7px;
+  }
+  .cards p{
+    color: #222;
   }
 
   .indicadores {
@@ -105,11 +108,12 @@
   .ind p {
     display: flex;
     align-items: center;
-
+    color: #222;
   }
   .graficos{
     display: flex;
     justify-content: space-around;
+    padding-top: 50px;
     text-align: center;    
   }
   .sensor, .media_sensor{
@@ -119,7 +123,6 @@
     padding: 0 15px;
   }
   #grafico_sensor, #grafico_media {
-    background-color: #01454fb5;
     border-radius: 20px;
   }
 

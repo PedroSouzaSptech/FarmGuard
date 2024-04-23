@@ -1,66 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> FarmGuard | Cadastro</title>
+    <title>Cadastro - FarmGuard</title>
+    <link rel="stylesheet" href="CADASTRO.CSS">
 </head>
-<link rel="stylesheet" href="CADASTRO.CSS">
 <body>
+
 <div class="logo">
-    <a href="INICIAL.html">
-        <img src="IMAGENS/logo.svg" alt="logo da empresa">
-    </a>
+    <img src="C:\Users\galno\OneDrive\Área de Trabalho\Atividades SPTECH\Projeto 2\logo.png" alt="logo da empresa">
 </div>
 
-<div class="nome-empresa"> <a href="INICIAL.html" class="aEmpresa">FarmGuard</a></div>
+<div class="nome-empresa">FarmGuard</div>
 
 <div class="nav-container">
-    <a href="SIMULADOR.html" target="_self" class="nav-link">Simulador</a>
+    <a href="SIMULADOR.html" target="_self"class="nav-link" onclick="mostrarSimulador()">Simulador</a>
+    <a href="LOGIN.html" target="_self" class="nav-link" onclick="mostrarLogin()">Login</a>
+    <a href="INICIAL.html" target="_self" class="nav-link" onclick="mostrarInicio()">Home</a>
 </div>
 
-<div class="container1" >    
-    <h1 class="titulo">Cadastre-se</h1> 
+<div class="container">    
+    <h1 class="titulo">Cadastro</h1> 
+    <div class="input-container">
+        <h2 class="titulo2">Nome</h2>
+        <input id="input_nome" class="digitar" type="text" placeholder="Digite o seu nome...">
+        <h2 class="titulo2">Sobrenome</h2>
+        <input id="input_sobrenome" class="digitar" type="text" placeholder="Digite o seu sobrenome...">
+    <div> 
+        <h2 class="titulo2 titulo-data">Data de Nascimento</h2>
+        <input id="input_data" class="digitar input-data" type="date">
+    </div>   
+        <h2 class="titulo2">Número Celular</h2>
+        <input id="input_celular" class="digitar" type="number" placeholder="Digite o seu número...">
+        <h2 class="titulo2">CPF</h2>
+        <input id="input_cpf" class="digitar" type="number" placeholder="Digite o seu cpf..."> 
+        <h2 class="titulo2">Email</h2>
+        <input id="input_email" class="digitar" type="email" placeholder="Digite o seu email...">
+        <h2 class="titulo2">Senha</h2>
+        <input id="input_senha" class="digitar" type="password" placeholder="Digite a sua senha...">
+        <h2 class="titulo2">Confirmação de Senha</h2>
+        <input id="input_confirmar_senha" class="digitar" type="password" placeholder="Digite a sua senha novamente...">
+    </div>
+    <br>    
+    <div class="botoes-container">
+        <button onclick="Criar()">Criar conta</button>
+        <button onclick="cancelar()">Cancelar</button>
+    </div>
+</div> 
 
-
-    <h3 class="titulo2"> Informe seu nome  </h3>
-        <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui o seu nome..."> 
-
-    <h3 class="titulo2"> Informe seu sobrenome  </h3>
-    <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui o seu sobrenome..."> 
-
-    <h3 class="titulo2"> Informe sua data de nascimento  </h3>
-    <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui sua data de nascimento..."> 
-
-    </div> 
-    
-
-
-<div class="container2">
-
-    <h3 class="titulo2"> Informe seu telefone  </h3>
-    <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui o seu telefone..."> 
-
-    <h3 class="titulo2"> Informe aqui o seu email </h3>
-        <input id="input_email"  class="digitar" type="email" placeholder="Digite aqui o seu email...">
-
-    <h3 class="titulo2"> Informe seu CPF  </h3>
-        <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui o seu CPF..."> 
-
-
-    <h4 class="titulo2"> Crie uma senha  </h4>
-        <input id="input_nome"  class="digitar" type="text" placeholder="Digite aqui a sua senha..."> 
-<br>    
-        <button onclick="entrar()">Criar conta</button> 
-        <button onclick="cancelar()">Cancelar</button> 
-</div>
 </body>
 </html>
+
 <script> 
- function cancelar(){
-    input_nome.value = ""
-    input_email.value = "" 
-    input_login.value = ""  
-    input_senha.value = ""
+function cancelar(){
+    input_email.value = "";
+    input_senha.value = "";
+    input_nome.value = "";
+    Number(input_cpf.value) = "";
+    input_sobrenome.value = "";
+    input_data.value = "";
+    Number(input_celular.value) = "";
+}
+
+function Criar() {
+    var nome = input_nome.value;
+    var sobrenome = input_sobrenome.value;
+    var celular = Number(input_celular.value);
+    var cpf = Number(input_cpf.value);
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var confirmarSenha = input_confirmar_senha.value;
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (nome === "" || sobrenome === "" || celular === "" || cpf === "" || email === "" || senha === "" || confirmarSenha === "") {
+        alert("Impossível realizar o cadastro. Por favor, preencha todos os campos.");
+        return;
     }
+
+    if (nome.length <= 1 || sobrenome.length <= 1 || celular.length < 11 || cpf.length < 11 || !emailRegex.test(email) || senha !== confirmarSenha) {
+        if (nome.length <= 1) {
+            alert("Nome inválido. Por favor, insira um nome válido.");
+        }
+        if (sobrenome.length <= 1) {
+            alert("Sobrenome inválido. Por favor, insira um sobrenome válido.");
+        }
+        if (celular.length < 11) {
+            alert("Número inválido. Por favor, insira um número válido com 11 dígitos.");
+        }
+        if (cpf.length < 11) {
+            alert("CPF inválido. Por favor, insira um CPF válido com 11 dígitos.");
+        } 
+        if (!emailRegex.test(email)) {
+            alert("Email inválido. Por favor, insira um email válido.");
+        }
+        if (senha !== confirmarSenha) {
+            alert("Senhas incompatíveis. Por favor, confirme sua senha corretamente.");
+        }
+    } else {
+        alert("Parabéns! Sua conta foi criada com sucesso.");
+    }
+}
+
 </script>
