@@ -72,6 +72,8 @@ function Criar() {
     var senha = input_senha.value;
     var confirmarSenha = input_confirmar_senha.value;
 
+    var url = "login.html";
+
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (nome === "" || sobrenome === "" || celular === "" || cpf === "" || email === "" || senha === "" || confirmarSenha === "") {
@@ -100,6 +102,7 @@ function Criar() {
         }
     } else {
         alert("Parabéns! Sua conta foi criada com sucesso.");
+        window.location.href = "LOGIN.html"
     }
 }
 
