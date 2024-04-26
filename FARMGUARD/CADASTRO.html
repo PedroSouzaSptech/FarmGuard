@@ -74,14 +74,14 @@ function Criar() {
 
     var url = "login.html";
 
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var emailVal = email.indexOf("@", ".");
 
     if (nome === "" || sobrenome === "" || celular === "" || cpf === "" || email === "" || senha === "" || confirmarSenha === "") {
         alert("Impossível realizar o cadastro. Por favor, preencha todos os campos.");
         return;
     }
 
-    if (nome.length <= 1 || sobrenome.length <= 1 || celular.length < 11 || cpf.length < 11 || !emailRegex.test(email) || senha !== confirmarSenha) {
+    if (nome.length <= 1 || sobrenome.length <= 1 || celular.length < 11 || cpf.length < 11 || emailVal < 0|| senha  !== confirmarSenha) {
         if (nome.length <= 1) {
             alert("Nome inválido. Por favor, insira um nome válido.");
         }
@@ -94,7 +94,7 @@ function Criar() {
         if (cpf.length < 11) {
             alert("CPF inválido. Por favor, insira um CPF válido com 11 dígitos.");
         } 
-        if (!emailRegex.test(email)) {
+        if (emailVal < 0) {
             alert("Email inválido. Por favor, insira um email válido.");
         }
         if (senha !== confirmarSenha) {

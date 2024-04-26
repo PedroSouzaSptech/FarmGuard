@@ -58,6 +58,18 @@
         var email = input_email.value
         var senha = input_senha.value
 
+        var emailVal = email.indexOf("@", ".");
+
+        if (nome.length <= 1) {
+            alert("Nome inválido. Por favor, insira um nome válido.");
+        }
+        if (emailVal < 0) {
+            alert("Email inválido. Por favor, insira um email válido.");
+        }
+        if (senha != 'Sprint2') {
+            alert('Senha incorreta')
+        }
+
         if (nome == 'Fernando Brandão' && email == 'fernando@sptech.school' && senha == 'Sprint2') {
             alert ('Login efetuado com sucesso')
             window.open(url, "_self")
