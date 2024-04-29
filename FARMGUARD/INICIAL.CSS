@@ -5,10 +5,10 @@
   Azul: #025360
   Preto: #000000 */
 
-html {
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+html{
     scroll-behavior: smooth;
 }
-
 *{
     margin: 0;
     padding: 0;
@@ -17,89 +17,66 @@ html {
 }
 
 body{
-    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
-    color: black;
     height: 100px;
 }
 
-.header{
+header{
     width: 100%;
-    height: 100px;
-    border-bottom: 2px solid #583a00;
-    align-items: center;
-}
-
-
-.navbar{
+    height: 120px;
+    background-color: #000;
     display: flex;
-    list-style: none;
-    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
-    width: 100%;
-    height: 10%;
-    justify-content: center;
-    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
+    
 }
-
-.navbar .th{
-    justify-content: center;
+.logo{
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
 }
-
-.navbar a{
-margin-right: 30px
+.menu{
+    display: flex;
+    gap: 100px;
+    margin-right: 30px;
 }
-
-nav a{
-    color: #fff;
-    float: right;
+.menu a{
     text-decoration: none;
-    display: block;
-    padding: 50px;
-    font-family: Arial;
-    justify-content: center;
-    }
-nav a:hover{
-    transition: 0.5s;
-    background-color: #ffe284;
-    }
+    display: flex;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Josefin Sans", sans-serif;
+}
 
 
-    .banner{
-        height: 500px;
-        background-image: url("IMAGENS/lake-constance-sheep-pasture-sheep-blue-158179-1.jpeg");
-    }
-    
-    .banner .container{
-        justify-content: center;
-       
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-            color: white;
-            font-weight: bold;
-            border: 3px solid #f8c71d;
-            border-radius: 15px;
-            align-items: center;
-            flex-direction: column;
+.banner{
+    background-image: url(IMAGENS/antonovevg-922pFScHe7k-unsplash\ \(2\).jpg);
+    width: 100%;
+    height: 800px;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-color: #025360;
+}
+.banner h1{
+    color: #000;
+    margin-left: 100px;
+    padding-top: 300px;
+    font-size: 100px;
+}
+.banner h2{
+    color: #000;
+    margin-left: 100px;
+}
 
-            /* transform: translate(-50%, -50%); */
-            z-index: 2;
-            width: fit-content;
-            height: auto;
-            padding: 20px;
-            text-align: center;
-      
-    
-    }
-    .banner .container p{
-        font-size: 35px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    }
-    
+.container{
+    display: flex;
+    justify-content: space-around;
+}
 .card{
     margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #4499ee;
+    background-color: #035360;
     border: #5e5ea8;
     text-align: center;
     display: none;
@@ -115,29 +92,19 @@ nav a:hover{
     box-shadow: 0 0 10px #4499ee;
 }
 
-
-.container{
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
 .social{
     height: auto;
-    background-color: #e5e5e5;
-    padding: 20px 0;
-
+    background-color: #fff;
+    padding: 20px;
+    justify-content: center;
 
 }
 
 .social .container .card{
-    width: 200px;
-    color: #222;
+    width: 400px;
+    color: #fff;
     display: flex;
+    font-size: 20px;
     align-items: center;
     flex-direction: column;
     text-align: center;
@@ -156,8 +123,7 @@ nav a:hover{
 .quem_somos{
     padding: 20px;
     display: flex;
-    background-image: linear-gradient(to right,  rgb(255, 102, 0), orange );
-    background-color: white;
+    background-color: #fff;
     color: black;
     height: auto;
     justify-content:space-around ;
@@ -184,31 +150,48 @@ nav a:hover{
 }
 
 .sobre_aviarios_card h4{
-    font-size: larger;
+    font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #f88603;
+    color: #000;
 }
 
+.sobre_aviarios_card p{
+    font-size: 25px;
+    color: #000;
+}
+
+.sobre_aviarios h1{
+    font-size: 45px;
+    color: #000;
+}
 
 .quem_somos_card {
     width: 70%;
     text-align: left;
     font-size: 20px;
+    background-color: #f88603;
+    border-radius: 10px;
+    height: 150px;
 }
+
 .quem_somos_card h4{
     font-size: larger;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #000;
 }
 .quem_somos_card h4{
-    color: #fff;
+    color: #000;
 }
 .quem_somos_card_comp {
     text-align: right;
     font-size: 20px;
     width: 70%;
+    background-color: #f88603;
+    border-radius: 10px;
+    height: 150px;
 }
 .quem_somos_card_comp h4 {
-    color: #fff;
+    color: #000;
     font-size: larger;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -231,9 +214,10 @@ nav a:hover{
     margin-top: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: #4499ee;
+    background-color: #b41d1d;
     border: #5e5ea8;
     text-align: center;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -248,18 +232,10 @@ nav a:hover{
 .sobre_aviarios{
     padding: 20px;
     display: flex;
-    background-color: white;
+    background-color: #fff;
     color: black;
     height: auto;
     text-align: left;
-}
-
-
-h1{
-    width: 50%;
-    height: 50%;
-    font-size: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .titulo_somos{
@@ -271,24 +247,25 @@ h1{
     flex-direction: row-reverse;
 }
 
-footer {
-    height: 200px;
-    width: auto;
-    background-color:#4499ee;
+footer{
+    height: 320px;
+    background-color: #025360;
     display: flex;
-    justify-content: space-between;
-    padding: 10px 50px 0px 50px;
-    margin: 0;
+    justify-content: space-around;
+    align-items: center;
 }
 
-footer.p{
-    align-items: start;
+.loc a{
+    text-decoration: none;
+    color: #000;
+    font-size: 25px;
 }
-footer.div {
-    align-items: end;
+.devs a{
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+
 }
-.end {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+.github{
+    width: 100px;
 }

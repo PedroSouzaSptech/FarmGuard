@@ -9,32 +9,26 @@
 </head>
 
 <body>
-    <div class="header">
-        <nav>
-            <ul class="navbar">
-                <li><img style="width: 92px; height: 92px;" src="IMAGENS/logo.svg" alt=""></li>
-                <li><a href="#div_inicial" alt=>INICIAL</a></li>
-                <li><a href="#div_mvv" alt=>MVV</a></li>
-                <li><a href="#sobre_aviarios" alt=>AVIÁRIOS</a></li>
-                <li><a href="#quem_somos" alt=>QUEM SOMOS</a></li>
-                <li><a href="#nossos_servicos" alt=>NOSSOS SERVIÇOS</a></li>
-                <li><a href="SIMULADOR.html" >SIMULADOR FINANCEIRO</a></li>
-                <li><a href="LOGIN.html" alt=>LOGIN | CADASTRO</a></li>
-            </ul>
-        </nav>
-    </div>
+    <header>
+        <img class="logo" src="IMAGENS/logo.svg" alt="">
+        <div class="menu">
+            <a href="#div_inicial">INICIAL</a>
+            <a href="#social">MVV</a>
+            <a href="#sobre_aviarios">AVIÁRIOS</a>
+            <a href="#quem_somos">QUEM SOMOS</a> 
+            <!-- nao rolou o quem somos nem o nossos serviços-->
+            <a href="#nossos_servicos">NOSSOS SERVIÇOS</a>
+            <a href="SIMULADOR.html">SIMULADOR FINANCEIRO</a>
+            <a href="LOGIN.html">LOGIN | CADASTRO </a>
+        </div>
+    </header>
 
     <div class="banner" id="div_inicial">
-        <div class="container">
-            <p>FarmGuard</p>
-        </div>
-        <br><br><br><br><br>
-        <div class="container">
-            <p>O Futuro das Criações em Aviários</p>
-        </div>
+        <h1>Farm Guard</h1>
+        <h2>O Futuro das Criações em Aviários</h2>
     </div>
 
-    <div class="social">
+    <div class="social" id="social">
         <div class="container">
             <div class="card" id="div_mvv">
                 <img src="IMAGENS/missao.png" alt="">
@@ -56,13 +50,21 @@
         </div>
     </div>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+   
+
     <div class="sobre_aviarios" id="sobre_aviarios">
         <h1>Sobre os Aviários</h1>
         <div class="card_somos">
 
             <div class="sobre_aviarios_card"><h4>Liderança</h4> <br>
-                Na pecuária, o Brasil se destaca na exportação de carne de frango
-                mundialmente e está entre os dez maiores em exportação de ovos de galinha.
+                <p>Na pecuária, o Brasil se destaca na exportação de carne de frango
+                mundialmente e está entre os dez maiores em exportação de ovos de galinha.</p>
             </div><br><br>
 
             <div class="sobre_aviarios_card"><h4>Compromisso</h4> <br>
@@ -74,6 +76,10 @@
             </div><br><br>
         </div>
     </div>
+
+    <br>
+    <br>
+    <br>
 
     <div class="quem_somos" id="quem_somos">
         <h1 class="titulo_somos">Quem Somos</h1><br>
@@ -97,6 +103,11 @@
                 </div>
             </div>
         </div>
+
+        <br>
+        <br>
+        <br>
+
 <!-- ADD DIV PARA NOSSOS SERIÇOS (TITULO H1) -->
     <div class="nossos_servicos" id="nossos_servicos">
         <h1>Nossos Serviços</h1>
@@ -112,6 +123,26 @@
 </div>
 
     <footer>
+        <div class="loc">
+            <a href="https://www.google.com/maps/place/Rua+Haddock+Lobo,+595+-+Cerqueira+C%C3%A9sar,+S%C3%A3o+Paulo+-+SP,+01414-002/@-23.5580824,-46.6617266,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce59d2b0da4a3f:0xf9757971d2bc9963!8m2!3d-23.5580824!4d-46.6617266!16s%2Fg%2F11v0_44c70?entry=ttu">
+                Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</a>
+        </div>
+        <div class="devs">
+            <h1>Nossos Devs:</h1>
+            <a href="https://github.com/BettinaGoulart" target="_blank">Bettina Goulart Romanelli Crispim</a><br>
+            <a href="https://github.com/DominiqueSPTech" target="_blank">Dominique Falcone-Dornan</a><br>
+            <a href="https://github.com/W-Faria-M" target="_blank">Gabriel de Faria Barranco</a><br>
+            <a href="https://github.com/GuilhermeLoure" target="_blank">Guilherme Lourenço de Oliveira</a><br>
+            <a href="https://github.com/izabelleFigueiredo" target="_blank">Izabelle Carmelita Figueiredo</a><br>
+            <a href="https://github.com/PedroSouzaSptech" target="_blank">Pedro Barbosa Souza</a><br>
+            <a href="https://github.com/RodrigoAlmeida2006" target="_blank">Rodrigo Almeida Munhoes Fré</a><br>
+        </div>
+        <div class="git">
+            <a href="https://github.com/PedroSouzaSptech/Sprint-2"><img src="IMAGENS/Design sem nome.png" class="github" alt=""></a>
+        </div>
+    </footer>
+
+    <!--footer>
         
         <div class="end">
         <p><b>Estamos localizados: <a
@@ -135,7 +166,7 @@
 
         <a href="https://github.com/PedroSouzaSptech/Sprint-2" target="_blank"><img width="100%" height="100%"
                 src="IMAGENS/Design sem nome.png" alt=""></a>
-    </footer>
+    </footer-->
 
 
 </body>
