@@ -1,6 +1,6 @@
-# Sprint-2
+# Sprint
 
-São Paulo Tech School 
+São Paulo Tech School <br>
 
  
 
