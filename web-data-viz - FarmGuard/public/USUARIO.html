@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmGuard | Dashboard</title>
+  <link rel="stylesheet" href="USUARIO.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <h2>Dashboard</h2>
+      <ul class="navbar">
+        <li><a class="navbar botao" href="index.html"> Home </a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="avisos">
+    <div class="cards">
+      <h1 id="porc1">75%</h1>
+      <p>Aviarios com Temperatura adqueada</p>
+    </div>
+    <div class="cards">
+      <h1 id="porc2">20%</h1>
+      <p>Aviários com temperatura em oscilação</p>
+    </div>
+    <div class="cards">
+      <h1 id="porc3">5%</h1>
+      <p>Aviários fora da temperatura adequada</p>
+    </div>
+
+    <div class="indicadores">
+      <h2>Principais Indicadores:</h2>
+      <div class="ind">
+        <p id="tempCritica">Aviários com temperatura crítica: </p>
+        <span id="img1"> <img src="IMAGENS/ok.png" /></span>
+      </div>
+      <div class="ind">
+        <p id="qtdAviarios">
+          Aviários que permaneceram mais de 10 min fora da temperatura
+          adequada:
+        </p>
+        <span id="img2"> <img src="IMAGENS/ok.png" /></span>
+      </div>
+      <div class="ind">
+        <p id="tempAdeq">Temperatura adequada: 22ºC a 26ºC</p>
+        <span id="img3"> <img src="IMAGENS/ok.png" /> </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="graficos">
+    <div class="sensor">
+      <h2>Aviario 1</h2>
+      <section style="width: 100%">
+        <canvas id="lm35Temperatura"></canvas>
+      </section>
+    </div>
+
+    <div class="media_sensor">
+      <h2>Oscilação da temperatura nos últimos 5 dias</h2>
+      <canvas id="grafico_media"></canvas>
+    </div>
+
+    <div class="editores_secao">
+      <div class="addSecao">
+        <h5>Adicionar Seção</h5>
+        <img src="IMAGENS/adicionar.png" />
+      </div>
+
+      <div class="editSecao">
+        <h5>Editar Seção</h5>
+        <img src="IMAGENS/engrenagem.png" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
+  contextoLm35Temperatura.canvas.width = 650;
+  contextoLm35Temperatura.canvas.height = 310;
+  var lm35Temperatura = new Chart(
+    contextoLm35Temperatura,
+    {
+      type: 'line',
+      data: {
+        datasets: [{
+          label: 'Temperatura',
+          type: 'line',
+          borderColor: ['#ffd902'],
+          backgroundColor: ['#ffe135']
+        }]
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            distribution: 'series',
+            ticks: {
+              beginAtZero: true
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Temperatura'
+            },
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        animation: {
+          duration: 0
+        }
+      }
+    }
+  );
+
+  const gb = document.getElementById("grafico_media");
+  new Chart(gb, {
+    type: "line",
+    data: {
+      labels: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+      datasets: [
+        {
+          label: "Temperatura",
+          data: [19.7, 22.2, 24.9, 21.4, 19.9, 23.1, 25.3],
+          borderWidth: 2,
+          borderColor: "#e85817",
+          backgroundColor: "#f8c71d",
+          textColor: "#e85817",
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 15,
+            },
+          },
+        },
+        // subtitle: {
+        //         display: true,
+        //         text: 'Média do total de 3 sensores'
+        //     }
+      },
+    },
+  });
+
+  var paginacao = {};
+  var tempo = {};
+  function obterDados(grafico, endpoint) {
+    var http = new XMLHttpRequest();
+    http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
+    http.send(null);
+    var valores = JSON.parse(http.responseText);
+    if (paginacao[endpoint] == null) {
+      paginacao[endpoint] = 0;
+    }
+    if (tempo[endpoint] == null) {
+      tempo[endpoint] = 0;
+    }
+    // Exibir à partir do último elemento exibido anteriormente
+    var ultimaPaginacao = paginacao[endpoint];
+    paginacao[endpoint] = valores.length;
+    var valores = valores.slice(ultimaPaginacao);
+    valores.forEach((valor) => {
+      //Máximo de 60 itens exibidos no gráfico
+      if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+        grafico.data.labels.shift();
+        grafico.data.datasets[0].data.shift();
+      }
+
+      grafico.data.labels.push(tempo[endpoint]++);
+      grafico.data.datasets[0].data.push(parseFloat(valor));
+      grafico.update();
+    })
+
+    // alterando a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
+    if (valores <= 21 || valores >= 29) {
+      img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+      tempCritica.innerHTML += ` 1`
+
+      img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+      qtdAviarios.innerHTML += ` 1`
+
+      porc1.innerHTML = `0%`
+      porc2.innerHTML = `100%`
+      porc3.innerHTML = `100%`
+    }
+    else if (valores <= 23 || valores >= 27) {
+      img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
+      tempCritica.innerHTML += ` 1`
+
+      img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
+      qtdAviarios.innerHTML += ` 1`
+
+      porc1.innerHTML = `0%`
+      porc2.innerHTML = `100%`
+      porc3.innerHTML = `100%`
+    }
+    else {
+      img1.innerHTML = `<img src="IMAGENS/ok.png">`;
+      tempCritica.innerHTML += ` 0`
+
+      img2.innerHTML = `<img src="IMAGENS/ok.png">`;
+      qtdAviarios.innerHTML += ` 1`
+
+      porc1.innerHTML = `100%`
+      porc2.innerHTML = `0%`
+      porc3.innerHTML = `0%`
+    }
+  }
+
+  setInterval(() => {
+    obterDados(lm35Temperatura, 'lm35/temperatura');
+  }, 1000);
+
+
+  // código abaixo: gera imagens de alerta diferentes de acordo com o número de aviários, usando math.random
+
+  // declarando variaveis para que a imagem de alerta apareça de acordo com o número de aviários
+  // considerado que o usuário tem 15 aviários
+  // var media = 15 / 3; // media = qtdAviarios / 3, para exibir 3 ícones diferentes de acordo com a gravidade
+  // Aviários com temperatura crítica
+  //var numTempCritica = (Math.random() * 15).toFixed();
+  //tempCritica.innerHTML += ` ${numTempCritica}`;
+  //if (numTempCritica <= media * 2 && numTempCritica > 0) {
+  // se for maior que 0 e menor que 2 terços do total
+  // img1.innerHTML = `<img src="IMAGENS/atencao.png">`
+  // tempCritica.innerHTML += ` 1`
+  //}
+  // if (numTempCritica >= media * 2) {
+  // se for maior que 2 terços do total
+  // img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+  //tempCritica.innerHTML += ` 1`
+  // }
+  // Aviários que permaneceram mais de 10 min fora da temperatura adequada
+  // var numAviarios = (Math.random() * 15).toFixed();
+  //qtdAviarios.innerHTML += ` ${numAviarios}`;
+  //if (numAviarios <= media * 2 && numAviarios > 0) {
+  //img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
+  //qtdAviarios.innerHTML += ` 1`
+  // }
+  //if (numAviarios >= media * 2) {
+  //  img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+  //  qtdAviarios.innerHTML += ` 1`
+  //}
+</script>

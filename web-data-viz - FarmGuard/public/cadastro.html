@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - FarmGuard</title>
+    <link rel="stylesheet" href="CADASTRO.CSS">
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="C:\Users\galno\OneDrive\Área de Trabalho\Atividades SPTECH\Projeto 2\logo.png" alt="logo da empresa">
+    </div>
+
+    <div class="nome-empresa">FarmGuard</div>
+
+    <div class="nav-container">
+        <a href="SIMULADOR.html" target="_self" class="nav-link" onclick="mostrarSimulador()">Simulador</a>
+        <a href="LOGIN.html" target="_self" class="nav-link" onclick="mostrarLogin()">Login</a>
+        <a href="index.html" target="_self" class="nav-link" onclick="mostrarInicio()">Home</a>
+    </div>
+
+    <div class="container">
+        <h1 class="titulo">Cadastro</h1>
+        <div class="input-container">
+            <h2 class="titulo2">Nome</h2>
+            <input id="input_nome" class="digitar" type="text" placeholder="Digite o seu nome...">
+            <h2 class="titulo2">Sobrenome</h2>
+            <input id="input_sobrenome" class="digitar" type="text" placeholder="Digite o seu sobrenome...">
+            <div>
+                <h2 class="titulo2 titulo-data">Data de Nascimento</h2>
+                <input id="input_data" class="digitar input-data" type="date">
+            </div>
+            <h2 class="titulo2">Número Celular</h2>
+            <input id="input_celular" class="digitar" type="number" placeholder="Digite o seu número...">
+            <h2 class="titulo2">CPF</h2>
+            <input id="input_cpf" class="digitar" type="number" placeholder="Digite o seu cpf...">
+            <h2 class="titulo2">Email</h2>
+            <input id="input_email" class="digitar" type="email" placeholder="Digite o seu email...">
+            <h2 class="titulo2">Senha</h2>
+            <input id="input_senha" class="digitar" type="password" placeholder="Digite a sua senha...">
+            <h2 class="titulo2">Confirmação de Senha</h2>
+            <input id="input_confirmar_senha" class="digitar" type="password"
+                placeholder="Digite a sua senha novamente...">
+
+            <h2 class="titulo2">ID da Empresa</h2>
+            <input id="input_idEmpresa" class="digitar" type="number" placeholder="Digite o ID da sua empresa...">
+        </div>
+        <br>
+        <div class="botoes-container">
+            <button onclick="cadastrar()">Criar conta</button>
+            <button onclick="cancelar()">Cancelar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function cancelar() {
+        input_email.value = "";
+        input_senha.value = "";
+        input_nome.value = "";
+        Number(input_cpf.value) = "";
+        input_sobrenome.value = "";
+        input_data.value = "";
+        Number(input_celular.value) = "";
+        input_idEmpresa.value = "";
+    }
+
+    function cadastrar(req, res) {
+        var nome = input_nome.value;
+        var sobrenome = input_sobrenome.value;
+        var celular = Number(input_celular.value);
+        var cpf = Number(input_cpf.value);
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var confirmarSenha = input_confirmar_senha.value;
+        var idEmpresa = Number(input_idEmpresa.value);
+
+        var url = "login.html";
+
+        var emailVal = email.indexOf("@", ".");
+
+        if (nome === "" || sobrenome === "" || celular === "" || cpf === "" || email === "" || senha === "" || confirmarSenha === "") {
+            alert("Impossível realizar o cadastro. Por favor, preencha todos os campos.");
+            return;
+        }
+
+        if (nome.length <= 1 || sobrenome.length <= 1 || celular.length < 11 || cpf.length < 11 || emailVal < 0 || senha !== confirmarSenha) {
+            if (nome.length <= 1) {
+                alert("Nome inválido. Por favor, insira um nome válido.");
+            }
+            if (sobrenome.length <= 1) {
+                alert("Sobrenome inválido. Por favor, insira um sobrenome válido.");
+            }
+            if (celular.length < 11) {
+                alert("Número inválido. Por favor, insira um número válido com 11 dígitos.");
+            }
+            if (cpf.length < 11) {
+                alert("CPF inválido. Por favor, insira um CPF válido com 11 dígitos.");
+            }
+            if (emailVal < 0) {
+                alert("Email inválido. Por favor, insira um email válido.");
+            }
+            if (senha !== confirmarSenha) {
+                alert("Senhas incompatíveis. Por favor, confirme sua senha corretamente.");
+            }
+            if (idEmpresa <= 0) {
+                alert("ID inválido. Por favor, insira um ID de empresa válido.");
+            }
+        } else {
+            // WEB DATA VIZ - IMPLEMENTAÇÃO
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nome,
+                    sobrenomeServer: sobrenome,
+                    celularServer: celular,
+                    cpfServer: cpf,
+                    emailServer: email,
+                    senhaServer: senha,
+                    idEmpresaServer:idEmpresa
+                }),
+            })
+
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        alert("Cadastro realizado com sucesso!");
+                        window.location.href = 'login.html';
+                    } else {
+                        alert('Email já cadastrado! Faça o seu login.')
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false;
+
+            usuarioModel.cadastrar(nome, sobrenome, celular, cpf, email, senha, idEmpresa)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                ).catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage)
+                            ;
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                );
+        }
+    }
+</script>
