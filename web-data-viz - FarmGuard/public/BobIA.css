@@ -1,0 +1,117 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #333333;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    height: 0;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b41d1d;
+    border-radius: 4px;
+}
+
+#container {
+    position: relative; 
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #1F1F1F;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #FFA500;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+    margin-right: 10px;
+}
+
+#link:hover {
+    color: #b41d1d;
+}
+
+#logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #FFA500;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #FFA500;
+    background-color: #333333;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+textarea[type="text"]::placeholder {
+    color: #CCCCCC;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin: 10px 5px;
+    background-color: #e85817;
+    color: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px black;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-10px);
+    background-color: #b41d1d;
+}
+
+#resposta {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #1F1F1F;
+    border: 1px solid #FFA500;
+    text-align: left;
+    display: none;
+    color: #FFFFFF;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+    color: #FFA500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 30px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
