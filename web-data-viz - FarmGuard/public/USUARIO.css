@@ -50,10 +50,27 @@
     color: #eb9065;
   }
 
+  .dir {
+    display: flex;
+    flex-direction: column;
+  }
+  .esq {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+  }
+
+  .containerConteudo {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    justify-content: space-around;
+  }
   .avisos{
     padding: 10px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -82,7 +99,7 @@
   }
 
   .indicadores {
-    width: 50%;
+    width: 100%;
     flex-direction: column;
     display: flex;
     gap: 15px;
