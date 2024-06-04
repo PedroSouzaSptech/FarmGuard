@@ -70,6 +70,8 @@ textarea[type="text"] {
 
 textarea[type="text"]::placeholder {
     color: #CCCCCC;
+    max-width: max-content;
+    max-height: 200px;
 }
 
 button {
