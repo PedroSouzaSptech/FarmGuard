@@ -16,34 +16,21 @@
       <ul class="navbar">
         <li><a class="navbar botao" href="index.html"> Home </a></li>
       </ul>
+      <span id="abrirB" class="abrirB" onclick="abrirBobIA()"><img src="IMAGENS/adicionar.png" alt="icon-bobIA" onclick="abrirBobIA()"> </span>
     </div>
   </div>
   <div class="containerConteudo">
     <div class="esq">
       <h1 id="porc1">75%</h1>
-        <p>Aviarios com Temperatura adqueada</p>
-        <h1 id="porc1">75%</h1>
-        <p>Aviarios com Temperatura adqueada</p>
-        <h1 id="porc1">75%</h1>
-        <p>Aviarios com Temperatura adqueada</p>
+      <p>Aviarios com Temperatura adqueada</p>
+      <h1 id="porc1">75%</h1>
+      <p>Aviarios com Temperatura adqueada</p>
+      <h1 id="porc1">75%</h1>
+      <p>Aviarios com Temperatura adqueada</p>
     </div>
 
 
-    <div class="avisos">
-      <div class="cards">
-        <h1 id="porc1">75%</h1>
-        <p>Aviarios com Temperatura adqueada</p>
-      </div>
-      <div class="cards">
-        <h1 id="porc2">20%</h1>
-        <p>Aviários com temperatura em oscilação</p>
-      </div>
-      <div class="cards">
-        <h1 id="porc3">5%</h1>
-        <p>Aviários fora da temperatura adequada</p>
-      </div>
-    </div>
-    <div class="dir">
+    <div class="mid">
       <div class="indicadores">
         <h2>Principais Indicadores:</h2>
         <div class="ind">
@@ -63,7 +50,6 @@
         </div>
       </div>
       <div class="graficos">
-
         <div class="media_sensor">
           <h2>Oscilação da temperatura nos últimos 5 dias</h2>
           <canvas id="grafico_media"></canvas>
@@ -81,12 +67,37 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
-</body>
+      <div id="dir" class="dir">
+        <div class="cards">
+          <h1 id="porc1">75%</h1>
+          <p>Aviarios com Temperatura adqueada</p>
+        </div>
+        <div class="cards">
+          <h1 id="porc2">20%</h1>
+          <p>Aviários com temperatura em oscilação</p>
+        </div>
+        <div class="cards">
+          <h1 id="porc3">5%</h1>
+          <p>Aviários fora da temperatura adequada</p>
+        </div>
+      </div>
 
+</body>
 </html>
 <script>
+
+  function abrirBobIA() {
+    var dir = document.getElementById('dir');
+
+    if (dir.style.display === 'flex') {
+      dir.style.display = 'none';
+    }
+    else{
+    dir.style.display = 'flex';
+    }
+  }
+
   var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
   contextoLm35Temperatura.canvas.width = 650;
   contextoLm35Temperatura.canvas.height = 310;
@@ -228,15 +239,13 @@
     porc2.innerHTML = `0%`
     porc3.innerHTML = `0%`
   }
-  }
+  
 
   setInterval(() => {
     obterDados(lm35Temperatura, 'lm35/temperatura');
   }, 1000);
 
-
   // código abaixo: gera imagens de alerta diferentes de acordo com o número de aviários, usando math.random
-
   // declarando variaveis para que a imagem de alerta apareça de acordo com o número de aviários
   // considerado que o usuário tem 15 aviários
   // var media = 15 / 3; // media = qtdAviarios / 3, para exibir 3 ícones diferentes de acordo com a gravidade

@@ -49,21 +49,30 @@
     transition: 0.4s;
     color: #eb9065;
   }
+  .abrirB img {
+    width: 50px;
+    background-color: #ffffff;
+  }
 
-  .dir {
+  .mid {
     display: flex;
     flex-direction: column;
   }
-  .esq {
+  .esq, .dir {
     display: flex;
     flex-direction: column;
     background-color: #222;
+    padding: 20px;
+  }
+  .dir {
+    display: none;
   }
 
   .containerConteudo {
     display: flex;
     flex-direction: row;
     height: 90vh;
+    padding: 30px 0 0;
     justify-content: space-around;
   }
   .avisos{
@@ -130,7 +139,7 @@
   .graficos{
     display: flex;
     justify-content: space-around;
-    padding-top: 50px;
+    padding-top: 30px;
     text-align: center;    
   }
   .sensor, .media_sensor{
