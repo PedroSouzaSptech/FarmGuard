@@ -56,8 +56,14 @@ body {
 .abrirB img,
 .abrirD img {
   width: 50px;
-  background-color: #ffffff;
+  transition: 0.4s;
 }
+.abrirB img:hover,
+.abrirD img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 
 .dash {
   display: flex;
@@ -85,12 +91,11 @@ body {
   flex-direction: column;
   background-color: #222;
   padding: 20px;
-  width: 50%;
+  width: 100%;
   align-items: center;
   border-bottom: 2px solid #e85817;
   border-left: 2px solid #e85817;
   box-shadow: -6px 0 15px #222;
-
   /* transition: opacity 0.5s, height 0.5s; */
 }
 
@@ -99,9 +104,9 @@ body {
   font-size: 30px;
 }
 
-.dir {
+/* .dir {
   width: 100%;
-}
+} */
 
 .esq a {
   text-decoration: none;

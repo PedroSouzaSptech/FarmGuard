@@ -14,9 +14,9 @@
     <div class="container">
       <h2><a class="navbar botao" href="index.html"> Home </a></h2>
       <ul class="navbar">
-        <li><span id="abrirD" class="abrirD" onclick="abrirDash()"><img src="IMAGENS/alertaMaximo.png" alt="icon-bobIA">
+        <li><span id="abrirD" class="abrirD" onclick="abrirDash()"><img src="IMAGENS/iconCeleiro.png" alt="icon-bobIA">
           </span></li>
-        <li><span id="abrirB" class="abrirB" onclick="abrirBobIA()"><img src="IMAGENS/adicionar.png"
+        <li><span id="abrirB" class="abrirB" onclick="abrirBobIA()"><img src="IMAGENS/iconChat.png"
               alt="icon-dashboardMenu"> </span></li>
 
       </ul>
@@ -63,7 +63,7 @@
       </div>
     </div>
 
-    <div id="abasMenu" class="abas">
+    <!-- <div id="abasMenu" class="abas"> -->
       <div id="esquerda" class="esq">
         <a href=""><h1 id="porc1">Aviário 1</h1></a>
         <a href=""><h1 id="porc1">Aviário 2</h1></a>
@@ -81,20 +81,19 @@
         <h3>Resposta da IA:</h3>
         <div id="resposta"></div>
       </div>
-    </div>
+    <!-- </div> -->
 </body>
 
 </html>
 <script>
   direita.style.display = 'none';
-  var abasM = document.getElementById('abasMenu');
   var iconeBob = document.getElementById('direita');
   var iconeDash = document.getElementById('esquerda');
+
   var dashDados = document.getElementById('dashD');
   var divTudo = document.getElementById('containerD');
 
   function abrirBobIA() {
-    abasM.style.display = 'flex';
     if (iconeBob.style.display == 'none') {
       iconeBob.style.display = 'flex';
     }
@@ -105,7 +104,6 @@
   }
 
   function abrirDash() {
-    abasM.style.display = 'flex';
     if (iconeDash.style.display == 'none') {
       iconeDash.style.display = 'flex';
     }
@@ -117,15 +115,17 @@
 
   function checarTamanho() {
     if (iconeDash.style.display == 'none' && iconeBob.style.display == 'none') {
-      abasM.style.display = 'none';
+      // abasM.style.display = 'none';
       divTudo.style.justifyContent = 'center';
     }
     else {
-      abasM.style.display = 'flex';
+      // abasM.style.display = 'flex';
       divTudo.style.justifyContent = 'space-between';
     }
   }
 
+
+// bobIA
   async function gerarResposta() {
     const pergunta = document.getElementById('pergunta').value;
 
