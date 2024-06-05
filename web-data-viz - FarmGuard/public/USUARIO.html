@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="obterDadosGrafico()">
   <div class="header">
     <div class="container">
       <h2><a class="navbar botao" href="index.html"> Home </a></h2>
@@ -47,7 +47,7 @@
         <div class="graficos">
           <div class="media_sensor">
             <h2>Oscilação da temperatura nos últimos 5 dias</h2>
-            <canvas id="grafico_media"></canvas>
+            <canvas id="myChart"></canvas>
           </div>
           <div class="editores_secao">
             <div class="addSecao">
@@ -144,7 +144,84 @@
     resposta.innerText = data.resultado;
   }
 
-  var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
+
+
+  function obterDadosGrafico() {
+        
+      
+        fetch(`/dashboard/metrica`, { cache: 'no-store',
+          method: "GET",
+         })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGrafico(resposta); 
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+}
+
+function plotarGrafico(dados) {
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        var momentos = dados.map(dado => dado.momento_grafico);
+        var temperatura = dados.map(dado => dado.Temperatura);
+
+            window.myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                labels: momentos,
+                datasets: [{
+                    label: 'temperatura',
+                    data: temperatura,
+                    borderColor: '#e85817',
+                    backgroundColor: '#e85817',
+                    borderWidth: 1,
+                    fill: false
+                }]
+                },
+                options: {
+                scales: {
+                    y:{
+                    beginAtZero: true,
+                    max: 100
+                    }
+                }
+                }
+            });
+         
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(temperatura)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        // for (i = 0; i < acertos.length; i++) {
+        //     var registro = acertos[i];
+        //     labels.push(registro.momento_grafico);
+        //     dados.datasets[0].data.push(dado.acertos);
+        //     // dados.datasets[1].data.push(registro.temperatura);
+        // }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(momentos)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+    }
+
+
+  /*var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
   contextoLm35Temperatura.canvas.width = 650;
   contextoLm35Temperatura.canvas.height = 310;
   var lm35Temperatura = new Chart(
@@ -220,7 +297,7 @@
         //     }
       },
     },
-  });
+  });*/
 
   var paginacao = {};
   var tempo = {};
@@ -249,7 +326,7 @@
     grafico.data.labels.push(tempo[endpoint]++);
     grafico.data.datasets[0].data.push(parseFloat(valor));
     grafico.update();
-  })
+  }) 
 
   // alterando a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
   if (valores <= 21 || valores >= 29) {
@@ -318,5 +395,5 @@
   //if (numAviarios >= media * 2) {
   //  img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
   //  qtdAviarios.innerHTML += ` 1`
-  //}
+  //} 
 </script>
