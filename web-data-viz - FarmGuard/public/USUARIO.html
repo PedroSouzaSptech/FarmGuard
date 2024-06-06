@@ -9,7 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="obterDadosGrafico()">
+<body onload="obterDadosGraficoEstatico()">
   <div class="header">
     <div class="container">
       <h2><a class="navbar botao" href="index.html"> Home </a></h2>
@@ -65,9 +65,13 @@
 
     <!-- <div id="abasMenu" class="abas"> -->
       <div id="esquerda" class="esq">
-        <a href=""><h1 id="porc1">Aviário 1</h1></a>
-        <a href=""><h1 id="porc1">Aviário 2</h1></a>
-        <a href=""><h1 id="porc1">Aviário 3</h1></a>
+        <h1 onclick="obterDadosGraficoDinamico('1')" id="porc1">Aviário 1</h1>
+        <h1 onclick="obterDadosGraficoDinamico('2')" id="porc1">Aviário 2</h1>
+        <h1 onclick="obterDadosGraficoDinamico('3')" id="porc1">Aviário 3</h1>
+        <h1 onclick="obterDadosGraficoDinamico('4')" id="porc1">Aviário 4</h1>
+        <h1 onclick="obterDadosGraficoDinamico('5')" id="porc1">Aviário 5</h1>
+        <h1 onclick="obterDadosGraficoDinamico('6')" id="porc1">Aviário 6</h1>
+        <h1 onclick="obterDadosGraficoEstatico()" id="porc1">Geral</h1>
       </div>
 
       <div id="direita" class="dir">
@@ -79,9 +83,7 @@
           <img class="icon" src="IMAGENS/perguntas-e-respostas.png" alt="Icon"> Gerar Resposta
         </button>
         <h3>Resposta da IA:</h3>
-        <div id="resposta">
-          <div id="text"></div>
-        </div>
+        <div id="resposta"></div>
       </div>
     <!-- </div> -->
 </body>
@@ -126,12 +128,11 @@
     }
   }
 
-
 // bobIA
   async function gerarResposta() {
     const pergunta = document.getElementById('pergunta').value;
 
-    const response = await fetch('http://localhost:3334/perguntar', {
+    const response = await fetch('/perguntar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -146,11 +147,7 @@
     resposta.innerText = data.resultado;
   }
 
-
-
-  function obterDadosGrafico() {
-        
-      
+  function obterDadosGraficoEstatico() {
         fetch(`/dashboard/metrica`, { cache: 'no-store',
           method: "GET",
          })
@@ -159,7 +156,7 @@
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                         resposta.reverse();
-                        plotarGrafico(resposta); 
+                        plotarGraficoEstatico(resposta); 
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
@@ -170,12 +167,120 @@
             });
 }
 
-function plotarGrafico(dados) {
+  function plotarGraficoEstatico(resposta) {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    console.log("iniciando plotagem do gráfico estático...");
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels =  [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Temperatura média",
+          data: [],
+          fill: false,
+          borderColor: '#e85817',
+          backgroundColor: '#e85817',
+          borderWidth: 1,
+          tension: 0.1,
+        },
+      ],
+    };
+    let options = {
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#000" // Cor do texto no eixo x
+                    },
+                    grid: {
+                        color: "rgba(0, 0, 0, 0.2)" // Cor das linhas de grade no eixo x com 20% de opacidade
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: "#000" // Cor do texto no eixo y
+                    },
+                    grid: {
+                        color: "rgba(0, 0, 0, 0.2)" // Cor das linhas de grade no eixo x com 20% de opacidade
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "#000" // Cor do texto da legenda
+                    }
+                }
+            }
+          };
+
+    console.log("----------------------------------------------");
+    console.log(
+      'Estes dados foram recebidos pela funcao "obterDadosGraficoEstatico" e passados para "plotarGraficoEstatico":'
+    );
+    console.log(resposta  );
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+      var registro = resposta[i];
+      labels.push(`Aviário ${registro.idAviario}`);
+      dados.datasets[0].data.push(registro.tempMedia);
+      }
+
+    console.log("----------------------------------------------");
+    console.log("O gráfico será plotado com os respectivos valores:");
+    console.log("Labels:");
+    console.log(labels);
+    console.log("Dados:");
+    console.log(dados.datasets);
+    console.log ("----------------------------------------------");
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: "bar",
+      data: dados,
+      options: options
+  };
+
+  // Adicionando gráfico criado em div na tela
+  if (window.myChart instanceof Chart) {
+                window.myChart.destroy();
+            }
+  window.myChart = new Chart(ctx, config);
+}
+
+  function obterDadosGraficoDinamico(aviario) {
+        fetch(`/dashboard/metrica/${aviario}`, { cache: 'no-store',
+          method: "GET",
+         })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGraficoDinamico(resposta); 
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+}
+
+  function plotarGraficoDinamico(dados) {
         var ctx = document.getElementById('myChart').getContext('2d');
 
         var momentos = dados.map(dado => dado.momento_grafico);
         var temperatura = dados.map(dado => dado.Temperatura);
 
+        if (window.myChart instanceof Chart) {
+                window.myChart.destroy();
+            }
             window.myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -193,7 +298,6 @@ function plotarGrafico(dados) {
                 scales: {
                     y:{
                     beginAtZero: true,
-                    max: 100
                     }
                 }
                 }
@@ -201,7 +305,7 @@ function plotarGrafico(dados) {
          
 
         console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGraficoDinamico(aviario)" e passados para "plotarGrafico":')
         console.log(temperatura)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
@@ -222,180 +326,38 @@ function plotarGrafico(dados) {
 
     }
 
+  // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
+  // if (valores <= 21 || valores >= 29) {
+  //   img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+  //   tempCritica.innerHTML += ` 1`
 
-  /*var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
-  contextoLm35Temperatura.canvas.width = 650;
-  contextoLm35Temperatura.canvas.height = 310;
-  var lm35Temperatura = new Chart(
-    contextoLm35Temperatura,
-    {
-      type: 'line',
-      data: {
-        datasets: [{
-          label: 'Temperatura',
-          type: 'line',
-          borderColor: ['#ffd902'],
-          backgroundColor: ['#ffe135']
-        }]
-      },
-      options: {
-        scales: {
-          xAxes: [{
-            distribution: 'series',
-            ticks: {
-              beginAtZero: true
-            }
-          }],
-          yAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Temperatura'
-            },
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        },
-        animation: {
-          duration: 0
-        }
-      }
-    }
-  );
+  //   img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+  //   qtdAviarios.innerHTML += ` 1`
 
-  const gb = document.getElementById("grafico_media");
-  new Chart(gb, {
-    type: "line",
-    data: {
-      labels: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
-      datasets: [
-        {
-          label: "Temperatura",
-          data: [19.7, 22.2, 24.9, 21.4, 19.9, 23.1, 25.3],
-          borderWidth: 2,
-          borderColor: "#e85817",
-          backgroundColor: "#f8c71d",
-          textColor: "#e85817",
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-      plugins: {
-        legend: {
-          labels: {
-            font: {
-              size: 15,
-            },
-          },
-        },
-        // subtitle: {
-        //         display: true,
-        //         text: 'Média do total de 3 sensores'
-        //     }
-      },
-    },
-  });*/
-
-  var paginacao = {};
-  var tempo = {};
-  // function obterDados(grafico, endpoint) {
-  var http = new XMLHttpRequest();
-  http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
-  http.send(null);
-  var valores = JSON.parse(http.responseText);
-  if (paginacao[endpoint] == null) {
-    paginacao[endpoint] = 0;
-  }
-  if (tempo[endpoint] == null) {
-    tempo[endpoint] = 0;
-  }
-  // Exibir à partir do último elemento exibido anteriormente
-  var ultimaPaginacao = paginacao[endpoint];
-  paginacao[endpoint] = valores.length;
-  var valores = valores.slice(ultimaPaginacao);
-  valores.forEach((valor) => {
-    //Máximo de 60 itens exibidos no gráfico
-    if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-      grafico.data.labels.shift();
-      grafico.data.datasets[0].data.shift();
-    }
-
-    grafico.data.labels.push(tempo[endpoint]++);
-    grafico.data.datasets[0].data.push(parseFloat(valor));
-    grafico.update();
-  }) 
-
-  // alterando a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
-  if (valores <= 21 || valores >= 29) {
-    img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-    tempCritica.innerHTML += ` 1`
-
-    img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-    qtdAviarios.innerHTML += ` 1`
-
-    porc1.innerHTML = `0%`
-    porc2.innerHTML = `100%`
-    porc3.innerHTML = `100%`
-  }
-  else if (valores <= 23 || valores >= 27) {
-    img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
-    tempCritica.innerHTML += ` 1`
-
-    img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
-    qtdAviarios.innerHTML += ` 1`
-
-    porc1.innerHTML = `0%`
-    porc2.innerHTML = `100%`
-    porc3.innerHTML = `100%`
-  }
-  else {
-    img1.innerHTML = `<img src="IMAGENS/ok.png">`;
-    tempCritica.innerHTML += ` 0`
-
-    img2.innerHTML = `<img src="IMAGENS/ok.png">`;
-    qtdAviarios.innerHTML += ` 1`
-
-    porc1.innerHTML = `100%`
-    porc2.innerHTML = `0%`
-    porc3.innerHTML = `0%`
-  }
-
-
-  setInterval(() => {
-    obterDados(lm35Temperatura, 'lm35/temperatura');
-  }, 1000);
-
-  // código abaixo: gera imagens de alerta diferentes de acordo com o número de aviários, usando math.random
-  // declarando variaveis para que a imagem de alerta apareça de acordo com o número de aviários
-  // considerado que o usuário tem 15 aviários
-  // var media = 15 / 3; // media = qtdAviarios / 3, para exibir 3 ícones diferentes de acordo com a gravidade
-  // Aviários com temperatura crítica
-  //var numTempCritica = (Math.random() * 15).toFixed();
-  //tempCritica.innerHTML += ` ${numTempCritica}`;
-  //if (numTempCritica <= media * 2 && numTempCritica > 0) {
-  // se for maior que 0 e menor que 2 terços do total
-  // img1.innerHTML = `<img src="IMAGENS/atencao.png">`
-  // tempCritica.innerHTML += ` 1`
-  //}
-  // if (numTempCritica >= media * 2) {
-  // se for maior que 2 terços do total
-  // img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-  //tempCritica.innerHTML += ` 1`
+  //   porc1.innerHTML = `0%`
+  //   porc2.innerHTML = `100%`
+  //   porc3.innerHTML = `100%`
   // }
-  // Aviários que permaneceram mais de 10 min fora da temperatura adequada
-  // var numAviarios = (Math.random() * 15).toFixed();
-  //qtdAviarios.innerHTML += ` ${numAviarios}`;
-  //if (numAviarios <= media * 2 && numAviarios > 0) {
-  //img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
-  //qtdAviarios.innerHTML += ` 1`
+  // else if (valores <= 23 || valores >= 27) {
+  //   img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
+  //   tempCritica.innerHTML += ` 1`
+
+  //   img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
+  //   qtdAviarios.innerHTML += ` 1`
+
+  //   porc1.innerHTML = `0%`
+  //   porc2.innerHTML = `100%`
+  //   porc3.innerHTML = `100%`
   // }
-  //if (numAviarios >= media * 2) {
-  //  img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-  //  qtdAviarios.innerHTML += ` 1`
-  //} 
+  // else {
+  //   img1.innerHTML = `<img src="IMAGENS/ok.png">`;
+  //   tempCritica.innerHTML += ` 0`
+
+  //   img2.innerHTML = `<img src="IMAGENS/ok.png">`;
+  //   qtdAviarios.innerHTML += ` 1`
+
+  //   porc1.innerHTML = `100%`
+  //   porc2.innerHTML = `0%`
+  //   porc3.innerHTML = `0%`
+  // }
 </script>

@@ -1,12 +1,29 @@
 var model = require("../models/dashModel");
 
-function metrica(req, res) {
+function metricaEst(req, res) {
 
-    // var idDado = req.params.idDado;
+    console.log(`Recuperando a média de temperatura em todos os aviários`);
 
-    console.log(`Recuperando medidas em tempo real`);
+    model.metricaEst().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
-    model.metrica().then(function (resultado) {
+function metricaDin(req, res) {
+
+    var idAviario = req.params.idAviario;
+
+    console.log(`Recuperando medidas do aviário ${idAviario} em tempo real`);
+
+    model.metricaDin(idAviario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -20,5 +37,6 @@ function metrica(req, res) {
 }
 
 module.exports = {
-    metrica
+    metricaDin,
+    metricaEst
 }
