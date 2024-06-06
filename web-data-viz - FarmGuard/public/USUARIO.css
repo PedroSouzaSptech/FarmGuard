@@ -266,7 +266,7 @@ textarea[type="text"] {
   border: 1px solid #FFA500;
   background-color: #333333;
   color: #FFFFFF;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   max-height: 200px;
   resize: vertical;
@@ -294,7 +294,7 @@ button:hover {
   transform: translateY(-10px);
   background-color: #b41d1d;
 }
-
+/* BOB IA */
 #resposta {
   margin-top: 20px;
   padding: 20px;
@@ -305,6 +305,22 @@ button:hover {
   display: none;
   color: #FFFFFF;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  max-height: 150px;
+  overflow: auto;
+}
+#text {
+  max-height: 120px;
+}
+
+#resposta::-webkit-scrollbar{
+  width: 6px;
+  border-radius: 10px;
+}
+#resposta::-webkit-scrollbar-track{
+  background:#e85817;
+}
+#resposta::-webkit-scrollbar-thumb{
+  background-color: #000;
 }
 
 h3 {
