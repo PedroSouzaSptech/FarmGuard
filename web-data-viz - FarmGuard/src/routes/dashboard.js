@@ -11,4 +11,10 @@ router.get("/metrica/:idAviario", function (req, res) {
     dashController.metricaDin(req, res);
 })
 
+// function do atualizar dados
+router.get("/tempo-real/:idAviario", function (req, res) {
+    dashController.metricaDinAtt(req, res);
+})
+
+
 module.exports = router;

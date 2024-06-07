@@ -64,27 +64,27 @@
     </div>
 
     <!-- <div id="abasMenu" class="abas"> -->
-      <div id="esquerda" class="esq">
-        <h1 onclick="obterDadosGraficoDinamico('1')" id="porc1">Aviário 1</h1>
-        <h1 onclick="obterDadosGraficoDinamico('2')" id="porc1">Aviário 2</h1>
-        <h1 onclick="obterDadosGraficoDinamico('3')" id="porc1">Aviário 3</h1>
-        <h1 onclick="obterDadosGraficoDinamico('4')" id="porc1">Aviário 4</h1>
-        <h1 onclick="obterDadosGraficoDinamico('5')" id="porc1">Aviário 5</h1>
-        <h1 onclick="obterDadosGraficoDinamico('6')" id="porc1">Aviário 6</h1>
-        <h1 onclick="obterDadosGraficoEstatico()" id="porc1">Geral</h1>
-      </div>
+    <div id="esquerda" class="esq">
+      <h1 onclick="obterDadosGraficoDinamico('1')" id="porc1">Aviário 1</h1>
+      <h1 onclick="obterDadosGraficoDinamico('2')" id="porc1">Aviário 2</h1>
+      <h1 onclick="obterDadosGraficoDinamico('3')" id="porc1">Aviário 3</h1>
+      <h1 onclick="obterDadosGraficoDinamico('4')" id="porc1">Aviário 4</h1>
+      <h1 onclick="obterDadosGraficoDinamico('5')" id="porc1">Aviário 5</h1>
+      <h1 onclick="obterDadosGraficoDinamico('6')" id="porc1">Aviário 6</h1>
+      <h1 onclick="obterDadosGraficoEstatico()" id="porc1">Geral</h1>
+    </div>
 
-      <div id="direita" class="dir">
-       <img id="logo" src="IMAGENS/logo.png" alt="Logo">
-        <h1>BobIA</h1>
-        <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
-        <br>
-        <button onclick="gerarResposta()">
-          <img class="icon" src="IMAGENS/perguntas-e-respostas.png" alt="Icon"> Gerar Resposta
-        </button>
-        <h3>Resposta da IA:</h3>
-        <div id="resposta"></div>
-      </div>
+    <div id="direita" class="dir">
+      <img id="logo" src="IMAGENS/logo.png" alt="Logo">
+      <h1>BobIA</h1>
+      <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
+      <br>
+      <button onclick="gerarResposta()">
+        <img class="icon" src="IMAGENS/perguntas-e-respostas.png" alt="Icon"> Gerar Resposta
+      </button>
+      <h3>Resposta da IA:</h3>
+      <div id="resposta"></div>
+    </div>
     <!-- </div> -->
 </body>
 
@@ -129,7 +129,7 @@
     }
   }
 
-// bobIA
+  // bobIA
   async function gerarResposta() {
     const pergunta = document.getElementById('pergunta').value;
 
@@ -149,31 +149,32 @@
   }
 
   function obterDadosGraficoEstatico() {
-        fetch(`/dashboard/metrica`, { cache: 'no-store',
-          method: "GET",
-         })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        plotarGraficoEstatico(resposta); 
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-}
+    fetch(`/dashboard/metrica`, {
+      cache: 'no-store',
+      method: "GET",
+    })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+            plotarGraficoEstatico(resposta);
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
 
   function plotarGraficoEstatico(resposta) {
     var ctx = document.getElementById('myChart').getContext('2d');
     console.log("iniciando plotagem do gráfico estático...");
 
     // Criando estrutura para plotar gráfico - labels
-    let labels =  [];
+    let labels = [];
 
     // Criando estrutura para plotar gráfico - dados
     let dados = {
@@ -191,45 +192,45 @@
       ],
     };
     let options = {
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#000" // Cor do texto no eixo x
-                    },
-                    grid: {
-                        color: "rgba(0, 0, 0, 0.2)" // Cor das linhas de grade no eixo x com 20% de opacidade
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: "#000" // Cor do texto no eixo y
-                    },
-                    grid: {
-                        color: "rgba(0, 0, 0, 0.2)" // Cor das linhas de grade no eixo x com 20% de opacidade
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        color: "#000" // Cor do texto da legenda
-                    }
-                }
-            }
-          };
+      scales: {
+        x: {
+          ticks: {
+            color: "#000" // Cor do texto no eixo x
+          },
+          grid: {
+            color: "rgba(0, 0, 0, 0.2)" // Cor das linhas de grade no eixo x com 20% de opacidade
+          }
+        },
+        y: {
+          ticks: {
+            color: "#000" // Cor do texto no eixo y
+          },
+          grid: {
+            color: "rgba(0, 0, 0, 0.2)" // Cor das linhas de grade no eixo x com 20% de opacidade
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: "#000" // Cor do texto da legenda
+          }
+        }
+      }
+    };
 
     console.log("----------------------------------------------");
     console.log(
       'Estes dados foram recebidos pela funcao "obterDadosGraficoEstatico" e passados para "plotarGraficoEstatico":'
     );
-    console.log(resposta  );
+    console.log(resposta);
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
       var registro = resposta[i];
       labels.push(`Aviário ${registro.idAviario}`);
       dados.datasets[0].data.push(registro.tempMedia);
-      }
+    }
 
     console.log("----------------------------------------------");
     console.log("O gráfico será plotado com os respectivos valores:");
@@ -237,97 +238,155 @@
     console.log(labels);
     console.log("Dados:");
     console.log(dados.datasets);
-    console.log ("----------------------------------------------");
+    console.log("----------------------------------------------");
 
     // Criando estrutura para plotar gráfico - config
     const config = {
       type: "bar",
       data: dados,
       options: options
-  };
+    };
 
-  // Adicionando gráfico criado em div na tela
-  if (window.myChart instanceof Chart) {
-                window.myChart.destroy();
-            }
-  window.myChart = new Chart(ctx, config);
-}
+    // Adicionando gráfico criado em div na tela
+    if (window.myChart instanceof Chart) {
+      window.myChart.destroy();
+    }
+    window.myChart = new Chart(ctx, config);
+  }
 
   function obterDadosGraficoDinamico(aviario) {
-        currentAviario = aviario
-        fetch(`/dashboard/metrica/${aviario}`, { cache: 'no-store',
-          method: "GET",
-         })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        plotarGraficoDinamico(resposta); 
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-}
+    currentAviario = aviario
+    fetch(`/dashboard/metrica/${aviario}`, {
+      cache: 'no-store',
+      method: "GET",
+    })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+            plotarGraficoDinamico(resposta);
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
 
   function plotarGraficoDinamico(dados) {
-        var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('myChart').getContext('2d');
 
-        var momentos = dados.map(dado => dado.momento_grafico);
-        var temperatura = dados.map(dado => dado.Temperatura);
+    var momentos = dados.map(dado => dado.momento_grafico);
+    var temperatura = dados.map(dado => dado.Temperatura);
 
-        if (window.myChart instanceof Chart) {
-                window.myChart.destroy();
-            }
-            window.myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                labels: momentos,
-                datasets: [{
-                    label: 'temperatura',
-                    data: temperatura,
-                    borderColor: '#e85817',
-                    backgroundColor: '#e85817',
-                    borderWidth: 1,
-                    fill: false
-                }]
-                },
-                options: {
-                scales: {
-                    y:{
-                    beginAtZero: true,
-                    }
-                }
-                }
-            });
-         
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGraficoDinamico(aviario)" e passados para "plotarGrafico":')
-        console.log(temperatura)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        // for (i = 0; i < acertos.length; i++) {
-        //     var registro = acertos[i];
-        //     labels.push(registro.momento_grafico);
-        //     dados.datasets[0].data.push(dado.acertos);
-        //     // dados.datasets[1].data.push(registro.temperatura);
-        // }
-
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        console.log(momentos)
-        console.log('Dados:')
-        console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
-        obterDadosGraficoDinamico(currentAviario);
+    if (window.myChart instanceof Chart) {
+      window.myChart.destroy();
     }
+    window.myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: momentos,
+        datasets: [{
+          label: 'temperatura',
+          data: temperatura,
+          borderColor: '#e85817',
+          backgroundColor: '#e85817',
+          borderWidth: 1,
+          fill: false
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          }
+        }
+      }
+    });
+
+
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGraficoDinamico(aviario)" e passados para "plotarGrafico":')
+    console.log(temperatura)
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    // for (i = 0; i < acertos.length; i++) {
+    //     var registro = acertos[i];
+    //     labels.push(registro.momento_grafico);
+    //     dados.datasets[0].data.push(dado.acertos);
+    //     // dados.datasets[1].data.push(registro.temperatura);
+    // }
+
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(momentos)
+    console.log('Dados:')
+    console.log(dados.datasets)
+    console.log('----------------------------------------------')
+
+    setTimeout(() => atualizarGrafico(aviario, dados, myChart), 2000);
+  }
+  function atualizarGrafico(aviario, dados, myChart) {
+
+    fetch(`/dashboard/tempo-real/${aviario}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (novoRegistro) {
+
+          obterdados(aviario);
+          // alertar(novoRegistro, aviario);
+          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+          console.log(`Dados atuais do gráfico:`);
+          console.log(dados);
+
+          if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+            console.log("---------------------------------------------------------------")
+            console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+            avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+            console.log("Horário do novo dado capturado:")
+            console.log(novoRegistro[0].momento_grafico)
+            console.log("Horário do último dado capturado:")
+            console.log(dados.labels[dados.labels.length - 1])
+            console.log("---------------------------------------------------------------")
+          } else {
+            // tirando e colocando valores no gráfico
+            dados.labels.shift(); // apagar o primeiro
+            dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+            dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+            dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+            myChart.update();
+          }
+
+          // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(aviario, dados, myChart), 2000);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(aviario, dados, myChart), 2000);
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+  }
+
+
+
+
+
+
+
+
+
+
+
 
   // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
   // if (valores <= 21 || valores >= 29) {

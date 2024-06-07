@@ -30,7 +30,25 @@ function metricaDin(idAviario) {
   return database.executar(instrucaoSql);
 }
 
+
+// function do atualizar dados
+function metricaDinAtt(idAviario) {
+
+  var instrucaoSql = `SELECT dd.temperatura Temperatura, DATE_FORMAT(dd.dtDado,'%H:%i:%s') momento_grafico
+                        FROM dados dd
+	                      JOIN dispositivo dp
+                        ON dd.fkDispositivo = dp.idDispositivo
+                        JOIN aviario a
+                        ON dp.fkAviario = a.idAviario
+                        WHERE idAviario = ${idAviario}
+                        ORDER BY idDado DESC LIMIT 1;`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   metricaDin,
-  metricaEst
+  metricaEst,
+  metricaDinAtt
 };
