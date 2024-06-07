@@ -98,6 +98,9 @@ body {
   box-shadow: -6px 0 15px #222;
   /* transition: opacity 0.5s, height 0.5s; */
 }
+.esq h1:hover {
+  cursor: pointer;
+}
 
 
 .dir h1 {
