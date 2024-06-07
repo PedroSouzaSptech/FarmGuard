@@ -96,6 +96,7 @@
 
   var dashDados = document.getElementById('dashD');
   var divTudo = document.getElementById('containerD');
+  var currentAviario;
 
   function abrirBobIA() {
     if (iconeBob.style.display == 'none') {
@@ -253,6 +254,7 @@
 }
 
   function obterDadosGraficoDinamico(aviario) {
+        currentAviario = aviario
         fetch(`/dashboard/metrica/${aviario}`, { cache: 'no-store',
           method: "GET",
          })
@@ -324,6 +326,7 @@
         console.log(dados.datasets)
         console.log('----------------------------------------------')
 
+        obterDadosGraficoDinamico(currentAviario);
     }
 
   // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
