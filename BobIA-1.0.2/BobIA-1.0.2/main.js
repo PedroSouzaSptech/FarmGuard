@@ -2,9 +2,10 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const express = require("express");
 const path = require("path");
+var caminho_env = '.env.bobIA';
 
 // carregando as variáveis de ambiente do projeto do arquivo .env
-require("dotenv").config();
+require("dotenv").config({ path: caminho_env });
 
 // configurando o servidor express
 const app = express();
