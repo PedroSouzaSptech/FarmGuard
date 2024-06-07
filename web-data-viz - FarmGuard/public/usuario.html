@@ -328,16 +328,17 @@
     console.log(dados.datasets)
     console.log('----------------------------------------------')
 
-    setTimeout(() => atualizarGrafico(aviario, dados, myChart), 2000);
+    setTimeout(() => atualizarGrafico(currentAviario, dados, myChart), 2000);
   }
-  function atualizarGrafico(aviario, dados, myChart) {
+  
+  function atualizarGrafico(currentAviario, dados, myChart) {
 
-    fetch(`/dashboard/tempo-real/${aviario}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/dashboard/tempo-real/${currentAviario}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (novoRegistro) {
 
-          obterdados(aviario);
-          // alertar(novoRegistro, aviario);
+          obterDadosGraficoDinamico(currentAviario);
+          // alertar(novoRegistro, currentAviario);
           console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
           console.log(`Dados atuais do gráfico:`);
           console.log(dados);
@@ -363,12 +364,12 @@
           }
 
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(aviario, dados, myChart), 2000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(currentAviario, dados, myChart), 2000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(aviario, dados, myChart), 2000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(currentAviario, dados, myChart), 2000);
       }
     })
       .catch(function (error) {
