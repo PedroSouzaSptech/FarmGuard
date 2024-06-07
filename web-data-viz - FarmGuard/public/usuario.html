@@ -285,13 +285,16 @@
     if (window.myChart instanceof Chart) {
       window.myChart.destroy();
     }
+    const last20momentos = momentos.slice(-20);
+    const last20temperatura = temperatura.slice(-20);
+
     window.myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: momentos,
+        labels: last20momentos,
         datasets: [{
           label: 'temperatura',
-          data: temperatura,
+          data: last20temperatura,
           borderColor: '#e85817',
           backgroundColor: '#e85817',
           borderWidth: 1,
@@ -299,6 +302,9 @@
         }]
       },
       options: {
+        animation: {
+          duration: 0
+        },
         scales: {
           y: {
             beginAtZero: true,
