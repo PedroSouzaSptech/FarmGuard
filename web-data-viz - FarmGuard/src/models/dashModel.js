@@ -6,7 +6,7 @@ function metricaEst() {
 	                        FROM dados dd
 	                        JOIN dispositivo dp
                             ON dd.fkDispositivo = dp.idDispositivo
-                            JOIN Aviario a 
+                            JOIN aviario a 
                             ON dp.fkAviario = a.idAviario
                             GROUP BY idAviario
                             ORDER BY idAviario DESC;`;
