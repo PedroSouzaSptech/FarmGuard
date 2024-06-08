@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://opresenterural.com.br/wp-content/uploads/2021/06/VACCINAR-FOTO-GALINHA-POEDEIRA-VACCINAR-DIVULGA%C3%87%C3%83O-2021-e1623170813779.jpg);
+  background-image: url(https://s2.glbimg.com/JHrPiU72WMoOOlJHDUJYf9OHzfQ=/e.glbimg.com/og/ed/f/original/2022/06/07/chicken-4849979_1920.jpg);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -9,13 +9,10 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-*{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;;
-}
 
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  ;
 }
 
 .input-container {
@@ -51,28 +48,30 @@ body {
   border-radius: 5px;
 }
 
-.titulo-data{
+.titulo-data {
   text-align: center;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.8);
+  background: #fff;
   width: 600px;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
-  box-shadow: 0 0 10px #b41d1d;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
 }
+
 h5 {
   margin: 0;
   color: #fff;
 }
+
 h5 a {
   text-decoration: none;
   color: #f8c71d;
@@ -82,7 +81,7 @@ button {
   width: 244px;
   height: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: #b41d1d;
+  background-color: #f0ad4e;
   color: #fff;
   outline: none;
   border: none;
@@ -93,21 +92,41 @@ button {
   margin-right: 5px;
   margin-left: 10px;
   margin-bottom: 20px;
+  border: 1px solid #790703;
+}
+
+input[type="date"] {
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #790703;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="number"]{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #790703;
+  box-sizing: border-box;
 }
 
 button:hover {
-  background-color: #8c1414;
+  background-color: #ec971f;
 }
 
 .titulo {
-  color: white;
+  color: #b41d1d;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 10px;
 }
 
 .titulo2 {
-  color: white;
+  color: #b41d1d;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 5px;
   left: 0;
@@ -120,26 +139,26 @@ button:hover {
   margin-top: 15px;
 }
 
-.nav-container  .nav-link {
-  color:  #f8c71d; 
+.nav-container .nav-link {
+  color: #f8c71d;
   font-weight: bold;
-  text-decoration: none; 
+  text-decoration: none;
   margin-top: 40px;
-  padding: 15px 25px; 
-  margin-right: 10px; 
+  padding: 15px 25px;
+  margin-right: 10px;
   font-size: 25px;
   margin-top: 20px;
 }
 
 .logo {
   position: absolute;
-  top: 10px; 
-  left: 10px; 
+  top: 10px;
+  left: 10px;
 }
 
 .logo img {
   width: 80px;
-  height: auto; 
+  height: auto;
 }
 
 .nome-empresa {
@@ -152,7 +171,8 @@ button:hover {
   color: #f8c71d;
   font-weight: 600;
 }
-.nav-link:hover{
+
+.nav-link:hover {
   transition: 0.4s;
   color: #eb9065;
-  }
+}

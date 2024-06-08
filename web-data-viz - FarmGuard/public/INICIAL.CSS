@@ -1,55 +1,58 @@
-  /* Paleta de cores: 
-  vermelho: #b41d1d
-  Laranja: #e85817
-  Amarelo: #f8c71d
-  Azul: #025360
-  Preto: #000000 */
-
-  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-html{
+html {
     scroll-behavior: smooth;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
-body{
-    height: 100px;
+body {
+    background-color: #f4f4f4;
+    line-height: 1.6;
 }
 
-header{
+::-webkit-scrollbar {
+    display: none;
+}
+
+header {
     width: 100%;
     height: 120px;
     background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 20px;
     position: fixed;
-    
+    top: 0;
+    z-index: 1000;
 }
-.logo{
+
+.logo {
     width: 80px;
     height: 80px;
-    margin-left: 20px;
 }
-.menu{
+
+.menu {
     display: flex;
-    gap: 100px;
-    margin-right: 30px;
+    gap: 20px;
 }
-.menu a{
+
+.menu a {
     text-decoration: none;
-    display: flex;
     color: #ffffff;
-    font-size: 20px;
-    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    transition: color 0.3s;
 }
 
+.menu a:hover {
+    color: #e85817;
+}
 
-.banner{
+.banner {
     background-image: url(IMAGENS/antonovevg-922pFScHe7k-unsplash\ \(2\).jpg);
     width: 100%;
     height: 800px;
@@ -57,197 +60,116 @@ header{
     text-align: center;
     border-color: #025360;
 }
-.banner h1{
+
+.banner h1 {
     color: #000;
     margin-left: 100px;
     padding-top: 300px;
     font-size: 100px;
 }
-.banner h2{
+
+.banner h2 {
     color: #000;
     margin-left: 100px;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: space-around;
-}
-.card{
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #035360;
-    border: #5e5ea8;
-    text-align: center;
-    display: none;
-
-
-    display: flex;
-    flex-direction: column;
-    width: 800px;
-    height: 800px;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    box-shadow: 0 0 10px #4499ee;
-}
-
-.social{
-    height: auto;
-    background-color: #fff;
+    flex-wrap: wrap;
     padding: 20px;
-    justify-content: center;
-
 }
 
-.social .container .card{
-    width: 400px;
+.card {
+    margin: 20px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #025360;
     color: #fff;
-    display: flex;
-    font-size: 20px;
-    align-items: center;
-    flex-direction: column;
     text-align: center;
-    height: 420px;
-    justify-content: space-around;
-}
-.social .container .card img{
-    width: 150px;
-}
-.social .container .card h4{
-    font-size: 24px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
 
+.card img {
+    width: 250px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
 
-.quem_somos{
-    padding: 20px;
-    display: flex;
+.card img:hover {
+    transform: scale(1.1);
+}
+
+.card h4 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+#social {
     background-color: #fff;
-    color: black;
-    height: auto;
-    justify-content:space-around ;
-    flex-direction: column;
-    align-items: center;
-}
-.quem_somos h1 {
-    text-align: left;
-    width: 100%;
-}
-.card_somos {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
 }
 
-.sobre_aviarios_card{
-    width: 70%;
-    text-align: left;
-    font-size: 20px;
-}
-
-.sobre_aviarios_card h4{
-    font-size: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+#social .card {
+    background-color: #f8c71d;
     color: #000;
 }
 
-.sobre_aviarios_card p{
-    font-size: 25px;
-    color: #000;
+#sobre_aviarios {
+    background-color: #fff;
 }
 
-.sobre_aviarios h1{
-    font-size: 45px;
-    color: #000;
+#sobre_aviarios .card {
+    background-color: #e85817;
+    color: #fff;
 }
 
-.quem_somos_card {
-    width: 70%;
-    text-align: left;
-    font-size: 20px;
-    background-color: #f88603;
-    border-radius: 10px;
-    height: 150px;
+#quem_somos {
+    background-color: #fff;
 }
 
-.quem_somos_card h4{
-    font-size: larger;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #000;
-}
-.quem_somos_card h4{
-    color: #000;
-}
-.quem_somos_card_comp {
-    text-align: right;
-    font-size: 20px;
-    width: 70%;
-    background-color: #f88603;
-    border-radius: 10px;
-    height: 150px;
-}
-.quem_somos_card_comp h4 {
-    color: #000;
-    font-size: larger;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.quem_somos_card_comp p {
-    text-align: left;
+#quem_somos .card {
+    background-color: #025360;
+    color: #fff;
 }
 
-.quem_somos_card h4 {
-    text-align: left;
+#nossos_servicos {
+    background-color: #fff;
 }
 
-.nossos_servicos{
-    padding: 20px;
-    display: flex;
-    background-color: white;
-    color: #000;
-    height: auto;
-}
-.card_servicos{
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 5px;
+#nossos_servicos .card {
     background-color: #b41d1d;
-    border: #5e5ea8;
-    text-align: center;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: auto;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    box-shadow: 0 0 10px #4499ee;
-    
+    color: #fff;
 }
 
-.sobre_aviarios{
-    padding: 20px;
-    display: flex;
-    background-color: #fff;
-    color: black;
-    height: auto;
-    text-align: left;
+.separator {
+    height: 5px;
+    background-color: #025360;
+    margin: 5px 0;
 }
 
-.titulo_somos{
-    height: 50%;
-    font-size: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    justify-content: end;
-    align-items: end;
-    flex-direction: row-reverse;
-}
-
-footer{
+footer {
     height: 320px;
     background-color: #025360;
     display: flex;
@@ -255,17 +177,33 @@ footer{
     align-items: center;
 }
 
-.loc a{
+a {
     text-decoration: none;
-    color: #000;
-    font-size: 25px;
+    color: #fff;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
 }
-.devs a{
-    text-decoration: none;
-    color: #000;
-    font-size: 18px;
 
+.devs a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
 }
-.github{
-    width: 100px;
+
+.github {
+    width: 120px;
+}
+
+h2 {
+    color: #fff;
+}
+
+.email {
+    color: #fff;
+    font-size: 20px;
+}
+
+.maps {
+    width: 25px;
 }
