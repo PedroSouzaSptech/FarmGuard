@@ -46,10 +46,10 @@
         </div>
         <div class="graficos">
           <div class="media_sensor">
-            <h2>Oscilação da temperatura nos últimos 5 dias</h2>
+            <h2 id="tituloGrafico" >Oscilação da temperatura nos últimos 5 dias</h2>
             <canvas id="myChart"></canvas>
           </div>
-          <div class="editores_secao">
+          <!-- <div class="editores_secao">
             <div class="addSecao">
               <h5>Adicionar Seção</h5>
               <img src="IMAGENS/adicionar.png" />
@@ -58,7 +58,7 @@
               <h5>Editar Seção</h5>
               <img src="IMAGENS/engrenagem.png" />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
       <h1 onclick="obterDadosGraficoDinamico('4')" id="porc1">Aviário 4</h1>
       <h1 onclick="obterDadosGraficoDinamico('5')" id="porc1">Aviário 5</h1>
       <h1 onclick="obterDadosGraficoDinamico('6')" id="porc1">Aviário 6</h1>
-      <h1 onclick="obterDadosGraficoEstatico()" id="porc1">Geral</h1>
+      <h1 onclick="obterDadosGraficoEstatico('0')" id="porc1">Geral</h1>
     </div>
 
     <div id="direita" class="dir">
@@ -149,6 +149,7 @@
   }
 
   function obterDadosGraficoEstatico() {
+    tituloGrafico.innerHTML = `Temperatura média nos últimos 5 dias`
     fetch(`/dashboard/metrica`, {
       cache: 'no-store',
       method: "GET",
@@ -225,7 +226,7 @@
     );
     console.log(resposta);
 
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    // Inserindo temperatura recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
       var registro = resposta[i];
       labels.push(`Aviário ${registro.idAviario}`);
@@ -256,6 +257,7 @@
 
   function obterDadosGraficoDinamico(aviario) {
     currentAviario = aviario
+    tituloGrafico.innerHTML = `Monitoramento em tempo real do aviário ${currentAviario}`
     fetch(`/dashboard/metrica/${aviario}`, {
       cache: 'no-store',
       method: "GET",
@@ -396,37 +398,37 @@
 
 
   // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
-  // if (valores <= 21 || valores >= 29) {
-  //   img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-  //   tempCritica.innerHTML += ` 1`
+  if (temperatura <= 21 || temperatura >= 29) {
+    img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+    tempCritica.innerHTML += ` 1`
 
-  //   img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-  //   qtdAviarios.innerHTML += ` 1`
+    img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+    qtdAviarios.innerHTML += ` 1`
 
-  //   porc1.innerHTML = `0%`
-  //   porc2.innerHTML = `100%`
-  //   porc3.innerHTML = `100%`
-  // }
-  // else if (valores <= 23 || valores >= 27) {
-  //   img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
-  //   tempCritica.innerHTML += ` 1`
+    porc1.innerHTML = `0%`
+    porc2.innerHTML = `100%`
+    porc3.innerHTML = `100%`
+  }
+  else if (temperatura <= 23 || temperatura >= 27) {
+    img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
+    tempCritica.innerHTML += ` 1`
 
-  //   img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
-  //   qtdAviarios.innerHTML += ` 1`
+    img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
+    qtdAviarios.innerHTML += ` 1`
 
-  //   porc1.innerHTML = `0%`
-  //   porc2.innerHTML = `100%`
-  //   porc3.innerHTML = `100%`
-  // }
-  // else {
-  //   img1.innerHTML = `<img src="IMAGENS/ok.png">`;
-  //   tempCritica.innerHTML += ` 0`
+    porc1.innerHTML = `0%`
+    porc2.innerHTML = `100%`
+    porc3.innerHTML = `100%`
+  }
+  else {
+    img1.innerHTML = `<img src="IMAGENS/ok.png">`;
+    tempCritica.innerHTML += ` 0`
 
-  //   img2.innerHTML = `<img src="IMAGENS/ok.png">`;
-  //   qtdAviarios.innerHTML += ` 1`
+    img2.innerHTML = `<img src="IMAGENS/ok.png">`;
+    qtdAviarios.innerHTML += ` 1`
 
-  //   porc1.innerHTML = `100%`
-  //   porc2.innerHTML = `0%`
-  //   porc3.innerHTML = `0%`
-  // }
+    porc1.innerHTML = `100%`
+    porc2.innerHTML = `0%`
+    porc3.innerHTML = `0%`
+  }
 </script>
