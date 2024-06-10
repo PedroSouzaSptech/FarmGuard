@@ -34,7 +34,7 @@
           </div>
           <div class="ind">
             <p id="qtdAviarios">
-              Aviários que permaneceram mais de 10 min fora da temperatura
+              Aviários com mais de 10 min fora da temperatura
               adequada:
             </p>
             <span id="img2"> <img src="IMAGENS/ok.png" /></span>
@@ -315,6 +315,40 @@
       }
     });
 
+    // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
+  if (temperatura <= 21 || temperatura >= 29) {
+    img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+    tempCritica.innerHTML += ` 1`
+
+    img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
+    qtdAviarios.innerHTML += ` 1`
+
+    porc1.innerHTML = `0%`
+    porc2.innerHTML = `100%`
+    porc3.innerHTML = `100%`
+  }
+  else if (temperatura <= 23 || temperatura >= 27) {
+    img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
+    tempCritica.innerHTML += ` 1`
+
+    img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
+    qtdAviarios.innerHTML += ` 1`
+
+    porc1.innerHTML = `0%`
+    porc2.innerHTML = `100%`
+    porc3.innerHTML = `100%`
+  }
+  else {
+    img1.innerHTML = `<img src="IMAGENS/ok.png">`;
+    tempCritica.innerHTML += ` 0`
+
+    img2.innerHTML = `<img src="IMAGENS/ok.png">`;
+    qtdAviarios.innerHTML += ` 1`
+
+    porc1.innerHTML = `100%`
+    porc2.innerHTML = `0%`
+    porc3.innerHTML = `0%`
+  }
 
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGraficoDinamico(aviario)" e passados para "plotarGrafico":')
@@ -388,40 +422,5 @@
 
   function gráficogeral() {
     window.location = "usuario.html";
-  }
-
-  // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
-  if (temperatura <= 21 || temperatura >= 29) {
-    img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-    tempCritica.innerHTML += ` 1`
-
-    img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-    qtdAviarios.innerHTML += ` 1`
-
-    porc1.innerHTML = `0%`
-    porc2.innerHTML = `100%`
-    porc3.innerHTML = `100%`
-  }
-  else if (temperatura <= 23 || temperatura >= 27) {
-    img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
-    tempCritica.innerHTML += ` 1`
-
-    img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
-    qtdAviarios.innerHTML += ` 1`
-
-    porc1.innerHTML = `0%`
-    porc2.innerHTML = `100%`
-    porc3.innerHTML = `100%`
-  }
-  else {
-    img1.innerHTML = `<img src="IMAGENS/ok.png">`;
-    tempCritica.innerHTML += ` 0`
-
-    img2.innerHTML = `<img src="IMAGENS/ok.png">`;
-    qtdAviarios.innerHTML += ` 1`
-
-    porc1.innerHTML = `100%`
-    porc2.innerHTML = `0%`
-    porc3.innerHTML = `0%`
   }
 </script>
