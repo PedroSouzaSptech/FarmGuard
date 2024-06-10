@@ -1,5 +1,5 @@
 body {
-    background-image: url(https://opresenterural.com.br/wp-content/uploads/2021/06/VACCINAR-FOTO-GALINHA-POEDEIRA-VACCINAR-DIVULGA%C3%87%C3%83O-2021-e1623170813779.jpg);
+    background-image: url(https://s2.glbimg.com/JHrPiU72WMoOOlJHDUJYf9OHzfQ=/e.glbimg.com/og/ed/f/original/2022/06/07/chicken-4849979_1920.jpg);
     background-position: center;
     background-size: cover;
       display: flex;
@@ -10,56 +10,76 @@ body {
       overflow: hidden;
   }
   .container {
-      display: flex;
-      flex-direction: column;
-      background: rgba(0, 0, 0, 0.8);
-      width: 600px;
-      height: 500px;
-      align-items: center;
-      justify-content: space-evenly;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #b41d1d;
-      padding: 20px;
-      margin-top: 50px;
-      margin-left: auto;
-      margin-right: auto;
-  } 
-
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 600px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
   *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;;
 }
 
-  button{
-      width: 244px;
-      height: 40px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      background: #b41d1d;
-      color: #fff;
-      outline: none;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background-color 0.3s ease;
-      margin-right: 5px;
-      margin-left: 10px;
-      margin-bottom: 20px;
-  }
-
-  button:hover {
-      background-color: #8c1414;
+  h5 {
+    margin: 0;
+    color: #fff;
   }
   
+  h5 a {
+    text-decoration: none;
+    color: #f8c71d;
+  }
+  
+  button {
+    width: 244px;
+    height: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f0ad4e;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #790703;
+  }
+   
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #790703;
+    box-sizing: border-box;
+  }
+  
+  button:hover {
+    background-color: #ec971f;
+  }
   .titulo {
-      color: white;
+      color: #b41d1d;
       text-align: center;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       margin-bottom: 10px;
   }
   
   .titulo2 {
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #b41d1d;
       margin-bottom: 5px;
       left: 0;
   }
@@ -67,50 +87,55 @@ body {
   .digitar {
       color: #000;
       text-align: center;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
       height: 30px;
       width: 500px;
       margin-bottom: 10px;
       border-radius: 5px;
   }
   
-  .nav-container {
-      position: absolute;
-      top: 30px;
-      right: 20px;
-      margin-top: 10px;
-  }
-  .nav-container  .nav-link {
-    color:  #f8c71d; 
-    font-weight: bold;
-    text-decoration: none; 
-    padding: 20px 20px;
-    font-size: 25px;
-}
-
-  .logo {
-    position: absolute;
-    top: 20px; 
-    left: 20px; 
-}
-
-.logo img {
-    width: 80px;
-    height: auto; 
-}
+ 
 
 .nome-empresa .aEmpresa{
     font-size: 40px;
     margin-left: 20px;
     position: absolute;
-    top: 40px;
+    top: 20px;
     left: 100px;
     margin-top: 0px;
     color: #f8c71d;
     text-decoration: none; 
     font-weight: 600;
 }
-.nav-link:hover{
+
+.nav-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-top: 15px;
+  }
+  
+  .nav-container .nav-link {
+    color: #f8c71d;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 40px;
+    padding: 15px 25px;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: auto;
+  }
+    
+  .nav-link:hover {
     transition: 0.4s;
     color: #eb9065;
-}
+  }

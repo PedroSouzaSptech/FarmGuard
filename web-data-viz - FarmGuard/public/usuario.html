@@ -71,7 +71,11 @@
       <h1 onclick="obterDadosGraficoDinamico('4')" id="porc1">Aviário 4</h1>
       <h1 onclick="obterDadosGraficoDinamico('5')" id="porc1">Aviário 5</h1>
       <h1 onclick="obterDadosGraficoDinamico('6')" id="porc1">Aviário 6</h1>
+<<<<<<< HEAD
       <h1 onclick="obterDadosGraficoEstatico('0')" id="porc1">Geral</h1>
+=======
+      <h1 onclick="gráficogeral()" id="porc1">Geral</h1>
+>>>>>>> 37a3074f299944e3f5b6622917a9f9debe4a637c
     </div>
 
     <div id="direita" class="dir">
@@ -386,16 +390,9 @@
 
   }
 
-
-
-
-
-
-
-
-
-
-
+  function gráficogeral() {
+    window.location = "usuario.html";
+  }
 
   // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
   if (temperatura <= 21 || temperatura >= 29) {
