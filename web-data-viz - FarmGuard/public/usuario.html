@@ -318,14 +318,13 @@
     // alterar a imagem de alerta, a contagem de aviários em alerta e a porcentagem de aviárioss
   if (temperatura <= 21 || temperatura >= 29) {
     img1.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-    tempCritica.innerHTML += ` 1`
+    tempCritica.innerHTML = `Aviários com temperatura crítica:  1`
 
     img2.innerHTML = `<img src="IMAGENS/alertaMaximo.png">`;
-    qtdAviarios.innerHTML += ` 1`
+    qtdAviarios.innerHTML = `Aviários com mais de 10 min fora da temperatura
+              adequada: 1`
 
-    porc1.innerHTML = `0%`
-    porc2.innerHTML = `100%`
-    porc3.innerHTML = `100%`
+    
   }
   else if (temperatura <= 23 || temperatura >= 27) {
     img1.innerHTML = `<img src="IMAGENS/atencao.png">`;
@@ -334,20 +333,15 @@
     img2.innerHTML = `<img src="IMAGENS/atencao.png">`;
     qtdAviarios.innerHTML += ` 1`
 
-    porc1.innerHTML = `0%`
-    porc2.innerHTML = `100%`
-    porc3.innerHTML = `100%`
   }
   else {
     img1.innerHTML = `<img src="IMAGENS/ok.png">`;
-    tempCritica.innerHTML += ` 0`
+    tempCritica.innerHTML = `Aviários com temperatura crítica:  0`
 
     img2.innerHTML = `<img src="IMAGENS/ok.png">`;
-    qtdAviarios.innerHTML += ` 1`
+    qtdAviarios.innerHTML = `Aviários com mais de 10 min fora da temperatura
+              adequada: 1`
 
-    porc1.innerHTML = `100%`
-    porc2.innerHTML = `0%`
-    porc3.innerHTML = `0%`
   }
 
     console.log('----------------------------------------------')
